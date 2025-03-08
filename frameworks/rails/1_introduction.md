@@ -1,0 +1,88 @@
+## Introduction
+- Web application development framework written in ruby programming language
+  - Designed to program web applications easily by making basic assumptions
+  - Allows to write less code while accomplishing more
+- It is opionionated software
+  - Makes assumption that there is a best way to do things
+- Don't Repeat Yourself (DRY)
+  - Every piece of knowledge must have a
+    - Single, unambiguous, authoritative representation within a system
+  - By not writing the same information over and over again
+    - Code is more maintainable, more extensible, and less buggy
+- Convention Over Configuration
+  - Rails has opinions and defaults to this set of conventions
+  - Rather tahn require that you specify minutiae endless config files
+- To create a new application called blog, run `rails new blog`
+  - this will also install gem dependencies already mentioned in Gemfile
+
+## Structure
+- app/
+  - Controllers, models, views, helpers, mailerss, channels, jobs, assets
+- bin/
+  - Rails scripts to start, set up, update, deploy, run application
+- config/
+  - Configuration for routes, database, etc.
+- db/
+  - Current database schema and migrations
+- lib/
+  - Extended modules for application
+- log/
+- public/
+  - Static files & complied assets, exposed as is when app is running
+- storage/
+  - Active storage file for disk service
+- test/
+  - Unit tests, fixtures, etc.
+- tmp/
+  - Temporary files like cache, pid files
+- vendor/
+  - Third-party code like vendored gems
+- .dockerignore
+- .gitattributes
+- .gitignore
+- .rub-version
+- config.ru
+  - Rack config for rack-based servers used to start application
+- Dockerfile
+- Gemfile, Gemfile.lock
+  - Specifies gem dependencies used by bundler gem
+
+## Basics
+- To start web server, run `rails server`
+  - Starts up Puma, a web serber distributed with rails by default
+  - To check on browser, go to 'localhost:3000'
+- Application classes and modules are available everywhere
+  - It's not required to load anything under 'app' with 'require'
+  - Loading is required for only files under 'lib' directory
+
+## Command Line
+- Create new application
+  - rails new temp
+  - rails new temp --database=postgresql
+- Server
+  - rails server
+  - rails server -e production
+  - rails server -p 4000
+- Generate
+  - rails generate scaffold User attr1:type1 attr2:type2
+    - Model, migration, controller, routes, views
+  - rails generate model User attr1:type1 attr2:type2
+    - Model, migration
+  - rails generate controller Users action1 action2
+    - Controller, helper
+  - rails generate mailer User
+  - rails generate job users_cleanup
+- Destroy
+  - rails destroy scaffold User
+  - rails destroy model User
+  - rails destroy controller User
+- Routes
+  - rails routes
+- Console
+  - rails console
+- Assets
+  - rails assets:precompile
+  - rails assets:clean
+- Tmp
+  - rails tmp:clear
+  - rails tmp:cache:clear
