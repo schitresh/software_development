@@ -8,7 +8,9 @@ order by emp_count desc;
 
 ### Duplicates in details
 ```sql
-select emp_id from details group by emp_id, project, salary having count(*) > 1;
+select emp_id from details
+group by emp_id, project, salary
+having count(*) > 1;
 ```
 
 ### Remove duplicates in details

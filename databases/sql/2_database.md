@@ -87,37 +87,38 @@ delete from employees where joining_date < '2023-01-01';
 ## Constraints
 ```sql
 -- Not Null
-create table employees(date_of_joining date not null)
-alter table employees modify date_of_joining date not null
+create table employees(date_of_joining date not null);
+alter table employees modify date_of_joining date not null;
 
 -- Unique
-create table employees(employee_id int not null unique)
-alter table employees add unique (employee_id)
+create table employees(employee_id int not null unique);
+alter table employees add unique (employee_id);
 
 -- Primary Key
-create table employees(employee_id int not null primary key)
-create table employees(employee_id int not null, primary key(employee_id, full_name))
-alter table employees add primary key (employee_id)
+create table employees(employee_id int not null primary key);
+create table employees(employee_id int not null, primary key(employee_id, full_name));
+alter table employees add primary key (employee_id);
 
 -- Foreign Key
-create table employees(address_id int references addresses(address_id))
-create table employees(foreign key(address_id) references addresses(address_id))
-alter table employees add foreign key (employee_id) references addresses(address_id)
+create table employees(address_id int references addresses(address_id));
+create table employees(foreign key(address_id) references addresses(address_id));
+alter table employees add foreign key (employee_id) references addresses(address_id);
 
 -- Removing a column with a constraint like foreign key
-select * from information_schema.table_constraints where table_name = 'employees'
-alter table employees drop constraint manager_id
-alter table employees drop column manager_id
+select * from information_schema.table_constraints where table_name = 'employees';
+alter table employees drop constraint manager_id;
+alter table employees drop column manager_id;
 
 -- Default
-create table employees(city varchar(255) default 'New York')
-alter table employees alter city drop default
+create table employees(city varchar(255) default 'New York');
+alter table employees alter city drop default;
 
 -- Check
-create table employees(check(date_of_joining) >= '2010-01-01')
-alter table employees modify date_of_joining check(date_of_joining >= '2010-01-01')
-alter table employees add constraint joined_after check(date_of_joining >= '2010-01-01')
-alter table employees drop check joined_after
+-- Impose conditions on what type of data can be inserted
+create table employees(check(date_of_joining) >= '2010-01-01');
+alter table employees modify date_of_joining check(date_of_joining >= '2010-01-01');
+alter table employees add constraint joined_after check(date_of_joining >= '2010-01-01');
+alter table employees drop check joined_after;
 ```
 
 ## Indexes
@@ -132,10 +133,10 @@ alter table employees drop check joined_after
 - Primary keys and foreign keys should be indexed
 
 ```sql
-create index employees_city_index on employees (city, state_code)
-create unique index employees_city_index on employees (city, state_code)
-alter table employees drop index employees_city_index
-alter index employees_city_index on employees rebuild
+create index employees_city_index on employees (city, state_code);
+create unique index employees_city_index on employees (city, state_code);
+alter table employees drop index employees_city_index;
+alter index employees_city_index on employees rebuild;
 ```
 
 ## Views
@@ -145,14 +146,14 @@ alter index employees_city_index on employees rebuild
 create view salaries_for_employees_joined_after_2023 as
 select employee_id, salary
 from employees
-where date_of_joining > '2023-01-01'
+where date_of_joining > '2023-01-01';
 
 -- List all views
-select * from information_schema.views where table_schema = "database_name"
+select * from information_schema.views where table_schema = "database_name";
 -- Delete view
-drop view view_name
+drop view view_name;
 -- Update view
-create or replace view view_name as (...)
+create or replace view view_name as (...);
 ```
 
 ## Temporary Table
