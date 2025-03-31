@@ -8,7 +8,7 @@ words = { 'one' => 1, 'two' => 2 } # String keys
 lists = { [1, 2] =>  'one', [3, 4] => 'two' } # Array keys
 
 [['a', 100], ['b', 200]].to_h # From list of lists: { 'a' => 100, 'b' => 200 }
-{**hash1, **hash2}
+{ **hash1, **hash2 }
 ```
 
 ### Accessing

@@ -20,7 +20,7 @@ dict([['a', 100], ['b', 200]]) # From list of lists: { 'a': 100, 'b': 200 }
 dict(a = 100, b = 200) # From keywords: {'a': 100, 'b': 200}
 
 { 'a': 1, 'b': 2 } | { 'c': 3 } # { 'a': 1, 'b': 2, 'c': 3 }
-{**dict1, **dict2}
+{ **dict1, **dict2 }
 ```
 
 ### Accessing

@@ -13,7 +13,7 @@ throw new Error('error message') // Error is generic error class
 ## Try Block
 ```js
 try {
-  // Peform operations
+  // Perform operations
 } catch (e) {
   // Handle exception
   console.log(e.name)

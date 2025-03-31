@@ -21,7 +21,7 @@ delete array[index]
 
 ### Var
 - `var name`
-- Accessible throughout within the defined function
+- Accessible throughout the defined function
 - Supports hoisting
 - Can be redeclared within the same scope (though not a good practice)
 - Binds `this`

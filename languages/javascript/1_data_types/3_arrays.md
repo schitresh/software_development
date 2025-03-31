@@ -66,9 +66,9 @@ entries() // Iterator with key-value (index-item) pairs
 keys() // Interator with key (index)
 values() // Interator with values (items)
 length()
-flat() // [1, [2], [[3, 4]]].flat returns [1, 2, [3, 4]]
+flat() // [1, [2], [[3, 4]]].flat() returns [1, 2, [3, 4]]
 join(str)
-// Refer: iterators
+// Refer iterators
 
 // Insert
 push(...elements) // Add elements at the end

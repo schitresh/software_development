@@ -4,10 +4,9 @@
 - Each object contains a built-in property called prototype
   - Prototype is itself an object and will have its own prototype property
   - Prototype chain helps to inherit properties and methods from other objects
+- `Object.assign(target, object)`
 
 ```js
-Object.assign(target, object)
-
 const target = {
   name: 'parent',
   printMessage() { console.log('hello') }
@@ -29,10 +28,9 @@ target.printText() // world
   - Like getting and setting object operations
   - Useful to add custom validations and access control
 - Also used to implement features like logging, caching, securities
+- `new Proxy(target, handler)`
 
 ```js
-const proxy = new Proxy(target, handler)
-
 const person = { name: 'Tom Cruise', dept: 'Finance' }
 const handler = {
   get: (obj, prop) => obj[prop],

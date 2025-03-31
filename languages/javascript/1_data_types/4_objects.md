@@ -4,7 +4,7 @@ let subjects = { phy: 'Physics', chem: 'Chemistry', math: 'Mathematics' }
 let numbers = { 1: 'one', 2: 'two' } // Converted to string keys: { '1': 'one', ... }
 
 let [a, b, c] = ['hello', 10, {}]
-let obj = { a, b, c} // { a: 'hello', b: 10, c: {} }
+let obj = { a, b, c } // { a: 'hello', b: 10, c: {} }
 Object.fromEntries([['a', 100], ['b', 200]]) // { 'a': 100, 'b': 200 }
 
 const student = {
@@ -17,7 +17,7 @@ const student = {
 student.printName()
 student.printDept()
 
-{...student1, ...details1}
+{ ...student1, ...details1 }
 ```
 
 ### Accessing
@@ -30,10 +30,13 @@ subjects.stat = 'Statistics'
 delete subjects.math
 Object.freeze(subjects)
 
-for (code in subjects) { console.log(code) }
-Object.entries(subjects).forEach((x) => {
-  console.log(code, name) }
+for (code in subjects) {
+  console.log(code)
 }
+
+Object.entries(subjects).forEach(([code, name]) => {
+  console.log(code, name)
+})
 ```
 
 ## Destructuring

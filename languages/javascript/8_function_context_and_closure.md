@@ -51,7 +51,7 @@ printName() // John Wick
 ## Closures
 - Allows nested functions to access variables defined in the scope of parent function
   - Even if the execution of the parent function is finished
-- Comibination of the function and its lexical environment
+- Combination of the function and its lexical environment
   - Allows an inner function to access the outer function scope
 - Lexical Scoping
   - Concept in which the scope of the variables is determined at the compilation
@@ -84,7 +84,7 @@ function setCounter() {
 const func = setCounter()
 // Execution of outer function is finished
 // Still the nested function can access the outer scope
-count() // 9
-count() // 8
-count() // 7
+func() // 9
+func() // 8
+func() // 7
 ```

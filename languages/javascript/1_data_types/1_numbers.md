@@ -1,4 +1,6 @@
 ## Numbers
+- Immutable
+
 ```js
 toFixed(x) // Shows x digits after decimal
 toPrecision(x) // Shows x digits including both before and after decimal

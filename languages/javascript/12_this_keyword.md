@@ -28,10 +28,10 @@ stu2.print = stu1.print
 stu2.print // stu2
 
 // Here the inner function is being called from the global object
-// And there name is not defined
+// Where name is not defined
 // Can use arrow function instead
 const student = {
-  name: 'name',
+  name: 'Tom Cruise',
   print() {
     return function () { console.log(this.name) }
   }
@@ -43,15 +43,15 @@ inner() // undefined
 // But it is executing on global object
 // While print is executing on student object: student.print()
 const student = {
-  name: 'name',
-  dept: 'finance',
+  name: 'Tom Cruise',
+  dept: 'Finance',
   print() {
-    console.log('this.dept')
+    console.log(this.dept)
     function inner() { console.log(this.name) }
     inner()
   }
 }
-inner = student.print() // finance, undefined
+inner = student.print() // Finance, undefined
 ```
 
 ## Arrow Functions
@@ -68,13 +68,13 @@ student.print2() // this refers to global object, so prints nothing
 // Useful in inner functions which are executed on global object
 // Using regular function here will print undefined
 const student = {
-  name: 'name',
+  name: 'Tom Cruise',
   print() {
     const inner = () => { console.log(this.name) }
     inner()
   }
 }
-student.print() // name
+student.print() // Tom Cruise
 
 // A class's body has this context
 // So arrow functions will correctly point to the instance or static fields

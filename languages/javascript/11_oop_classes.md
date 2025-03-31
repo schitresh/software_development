@@ -20,6 +20,8 @@ class AnotherChild extends Parent {
   }
 }
 
+parent = new Parent('John Wick')
+
 // Multiple Inheritance
 // Not Supported, can be emulated using mixins
 // This is because each object can have only one prototype in javascript
@@ -33,20 +35,26 @@ const student = {
 Object.assign(Child.prototype, student)
 Object.assign(Child.prototype, student, profile, ...)
 
+child = new Child('John Wick')
+child.class // X
+child.printText() // Hello
+
 // Multiple Inheritance Using Class
 class Entity {
   hello () { console.log('Hello') }
 }
+
 class Human extends Entity {
   walk () { console.log('Walk') }
 }
+
 function Athelete(Parent) {
   return class extends Parent {
     exercise () { console.log('Exercise') }
   }
 }
-
 class Swimmer extends Athelete(Human) {}
+
 const swimmer = new Swimmer()
 swimmer.hello()
 swimmer.walk()
@@ -82,6 +90,8 @@ class Rectange extends Shape {
 class Parent {
   display () {
     console.log('Parent')
+  }
+}
 
 class Child extends Parent {
   display () {

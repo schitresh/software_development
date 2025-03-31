@@ -1,7 +1,7 @@
 ## Browser Object Model (BOM)
 - Refers to the objects provided by the browsers to interact with them
 - By using these objects, browser functionality can be manipulated
-  - For example, browser history, window size, navigate to urls
+  - For example, browser history, window size, navigating to urls
 - It is not standardized and depends on the browser in use
 
 ## Document Object Model (DOM)
@@ -99,7 +99,7 @@ const setCookie = (key, value, expireInDays) => {
     let expiryDate = newDate()
     expiryDate.setTime(date.getTime() + expireInSeconds * 1000)
     expiryDate = expiryDate.toUTCString()
-    cookie += `exipres=${expiryDate}`
+    cookie += `expires=${expiryDate}`
   }
 
   document.cookie = cookie
@@ -130,8 +130,6 @@ const getCookie = (cookieKey) => {
 // Properties
 width
 height
-
-// Methods
 ```
 
 ## History
@@ -139,8 +137,6 @@ height
 - Accessed as `window.history` or just `history`
 
 ```js
-// Properties
-
 // Methods
 back()
 forward()
@@ -161,7 +157,7 @@ userAgent // user-agent header
 
 ## Location
 - Helps to manipulate information of the window location (URL)
-  - For example to get the host from current url
+  - For example, to get the host from current url
 - Accessed as `window.location` or just `location`
 - Set `window.location = url` to go or redirect to a specific url
 

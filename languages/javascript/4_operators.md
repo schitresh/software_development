@@ -1,6 +1,7 @@
 ## Arithmetic Operators
+- Includes regular operators like +, -, *, /
+
 ```js
-// Includes regular operators like +, -, *, /
 a / b // Float Division: 5 / 2 = 2.5
 a % b // Modulus
 a ** b // Exponent
@@ -14,8 +15,8 @@ a && b
 a || b
 !a
 // Nullish coalescing operator
-// Returns b if a is null or undefined
-// Otherwise it returns a even if it is false
+// Returns 'b' if 'a' is null or undefined
+// Otherwise it returns 'a' even if it is false
 a ?? b
 ```
 
@@ -24,9 +25,9 @@ a ?? b
 a = 10
 b = [10, 20]
 
-a in b # True
-a in { 10: 'ten' } # True
-a not in b # False
+a in b // True
+a in { 10: 'ten' } // True
+a not in b // False
 ```
 
 ## Identity Operators
@@ -35,8 +36,8 @@ a = [10, 20]
 b = [10, 20]
 c = a
 
-a is c # True
-a is not b # True
+a is c // True
+a is not b // True
 ```
 
 ## Other Operators

@@ -54,7 +54,6 @@ number_map[1] // 'one'
 
 ## Date
 ```js
-# Date
 new Date()
 ```
 

@@ -21,13 +21,12 @@ localStorage.clear()
 
 ```js
 // DOM Properties
-
 // Contains multiple properties to perform a particular validation
 // customError, valueMissing, rangeOverflow, rangeUnderflow, tooLong
 // patternMismatch, stepMismatch, typeMismatch
 // valid (boolean to indicate if valid or not)
-validity
-validationMessage
+element.validity
+element.validationMessage
 
 // DOM Methods
 element.checkValidity() // Checks if the input value is valid
@@ -54,8 +53,8 @@ element.setCustomValidity(message) // Sets custom message for validation of the 
   let workerObj
 
   function startWorker() {
-    if (typeof WorkerObj !== undefined) return
-    const workerObj = new Worker('textWorker.js')
+    if (typeof workerObj !== undefined) return
+    workerObj = new Worker('textWorker.js')
     // To get the message in main thread from the worker file
     // Which is sent using postMessage method, onmessage event is used
     workerObj.onmessage = function (e) {
@@ -104,7 +103,6 @@ output.innerHTML += JSON.stringify(data)
 // Properties
 coords
 coords.latitude // longitude, altitude, accuracy, altitudeAccuracy, heading, speed
-
 
 // Methods
 // Current geographic location of user

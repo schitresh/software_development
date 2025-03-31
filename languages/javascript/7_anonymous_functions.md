@@ -2,7 +2,7 @@
 - Doesn't support hoisting
 
 ```js
-// add(10, 20) raises error since hoisting is not supported
+// Calling add(10, 20) before declaration will raise error since hoisting is not supported
 const add = function (a, b) { return a + b }
 add(10, 20)
 

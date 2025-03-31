@@ -77,7 +77,7 @@ then(onFulfilled, onRejected)
 
 promise
   .then((value) => {
-    console.log(`Success: ${value}`)}
+    console.log(`Success: ${value}`)
   })
 
 promise

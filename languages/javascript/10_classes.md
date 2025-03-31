@@ -8,7 +8,7 @@ class Employee {
 }
 
 // Class Expression
-class Employee = class {
+const Employee = class {
   constructor(name) {
     this.name = name
   }
@@ -62,9 +62,9 @@ Employee.displayDept()
 ```
 
 ## Access Modifiers
-- Public: name (No underscore)
-- Protected: _name (single underscore)
-- Private: __name (double underscore)
+- Public: name
+- Protected: _name
+- Private: #name
 
 ```js
 class Employee {

@@ -7,14 +7,14 @@
   - You can define first-class function, pure functions, closures
     - higher order functions, arrow fucntions, function expressions
 - Dynamically typed
-- Weekly typed
+- Weakly typed
   - Allows automatic type conversion between unrelated data types
-  - For esample, 1 + '2' is evaluated to '12'
+  - For example, 1 + '2' is evaluated to '12'
 - Automatic garbage collection
 - Single threaded programming language
   - Doesn't have multi-threading capabilities
   - To execute code faster, asynchronous programming can be used
-- It comes install on every modern web browser
+- It comes installed on every modern web browser
 
 ## Client-side Language
 - Helps in manipulating HTML pages
@@ -26,22 +26,22 @@
 - Best and most popular library is NodeJS
 
 ## Basics
-```rb
+```js
 // Single line comment
 /*
 Multiline comment
 */
 
-# Standard Input
-# Opens a dialogue box and takes user input (as a string)
+// Standard Input
+// Opens a dialogue box and takes user input (as a string)
 value = prompt('Enter input value')
 
-console.log('Hello') # Prints content in web console
-console.log(val1, val2) # Seperated using space by default
-document.write('hello') # Writes content directly to web page
-alert('hello') # Opens a dialogue box on web page with the given content
+console.log('Hello') // Prints content in web console
+console.log(val1, val2) // Seperated using space by default
+document.write('hello') // Writes content directly to web page
+alert('hello') // Opens a dialogue box on web page with the given content
 
-# Safe Navigation
+// Safe Navigation
 person?.info?.name
 ```
 

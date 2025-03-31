@@ -1,6 +1,7 @@
 ## If Else
+- Falsy values: 0, false, '', undefined, null, NaN
+
 ```js
-// Falsy values: 0, false, '', undefined, null, NaN
 if (marks < 30) {
   result = 'Failed'
 } else if (marks > 75) {
@@ -19,7 +20,7 @@ marks >= 30 && 'Passed'
 
 ## Match Case
 ```js
-# Case values can be any literal, even list
+// Case values can be any literal, even list
 switch (category) {
   case 'A':
     result = 'Distinction'
@@ -38,7 +39,7 @@ switch (category) {
 ## Loops
 ### For loop
 ```js
-for (let i = 0 i < 10 i++) {
+for (let i = 0; i < 10; i++) {
   console.log(i)
 }
 
@@ -69,6 +70,7 @@ while (i < 10) {
 ## Jump Statements
 ```js
 words = ['hello', 'world']
+
 // break
 // Will print 'hello'
 for (let item of words) {
