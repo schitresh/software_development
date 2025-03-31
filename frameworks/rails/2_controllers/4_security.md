@@ -1,5 +1,5 @@
 ## Request Forgery Protection
-- Cross-site request forgery is a type oof attack
+- Cross-site request forgery is a type of attack
   - In which a site tricks a user into making requests on another site
   - Possibly adding, modifying, or deleting data on that site
   - Without the user's knowledge or permission
@@ -7,12 +7,12 @@
   - That is, create, update, destroy can be accessed only with non-GET requests
 - A malicious site can still send a non-GET request to your site
   - That's where request forgery protection conmes in
-  - It adds a non-guessable token (which is only know to the server) to each request
+  - It adds a non-guessable token (which is only known to the server) to each request
 - Rails adds this token to every form generated using form helpers
   - For a manual form or custom Ajax calls
     - It's available through `form_authenticity_token`
 
-```js
+```html
 <form accept-charset="UTF-8" action="/users/1" method="post">
   <input type="hidden"
          value="67250ab105eb5ad10851c00a5621854a23af5489"

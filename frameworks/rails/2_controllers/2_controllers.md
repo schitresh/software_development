@@ -70,6 +70,7 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
   private
+
     def require_login
       return if logged_in?
       flash[:error] = "You must be logged in to access this section"
@@ -115,8 +116,8 @@ class ClientsController < ApplicationController
   private
     def generate_pdf
       Prawn::Document.new do
-        text client.name, align: :center
-        text "Address: #{client.address}"
+        text(client.name, align: :center)
+        text("Address: #{client.address}")
       end.render
     end
 end
@@ -142,7 +143,7 @@ response.stream.write(text)`
 - If there was a routing error or record was not found, it displays 404
 - These messages are in 500.html & 404.html of public folder
   - These can be customized but are static files (erb, scss, etc. cannot be used)
-- Do not use 'rescue_from' with Exception or Standard
+- Do not use 'rescue_from' with Exception or StandardError
   - It can cause serious side-effects
   - And prevents rails from handling exceptions properly
 

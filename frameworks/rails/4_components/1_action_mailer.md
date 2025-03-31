@@ -103,7 +103,7 @@ end
 ```
 
 ## Observing Emails
-- Gives access to emaill message after it has been sent
+- Gives access to email message after it has been sent
 
 ```rb
 class EmailDeliveryObserver

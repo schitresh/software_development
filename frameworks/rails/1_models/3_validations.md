@@ -10,7 +10,7 @@
   - insert, insert!, insert_all, insert_all!, upsert, upsert_all
   - update_all, update_attribute, update_column, update_columns
 - Validations can be triggered manually using `valid?` or `invalid?`
-- Validation can also be skipped using `save(validate: false)`
+- Validations can also be skipped using `save(validate: false)`
 - If any validation fails, the errors are stored in `errors` attribute
 
 ```rb

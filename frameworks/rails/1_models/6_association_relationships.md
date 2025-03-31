@@ -62,7 +62,7 @@ end
 ### Has and Belongs to Many
 - Should be used if the joining model is not required
 - Recommended to create join table with no primary key via `id: false`
-  - Use `create_join_table` to handle this implicitely
+  - Use `create_join_table` to handle this implicitly
 
 ```rb
 class Physician < ApplicationRecord
@@ -80,7 +80,7 @@ create_table :physicians_patients, id: false do |t|
   t.index [:physician_id, :patient_id]
   t.index [:patient_id, :physician_id]
 end
-
+# Or
 create_join_table :physicians_patients, :parts do |t|
   t.index :physician_id
   t.index :patient_id
@@ -152,7 +152,8 @@ end
 class Car < Vehicle
 end
 
-# Will be saved to vehicles tables with type = 'Car'
+# There will be only one table 'vehicles', Car objects will be stored in the same
+# Will be saved to vehicles tables with type = 'Car' and the mentioned details
 Car.create(color: 'Red', price: 10000)
 ```
 

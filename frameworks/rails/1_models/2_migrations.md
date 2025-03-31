@@ -5,7 +5,7 @@
 - File is appended with timestamp to track which migration to run & their order
   - For example: 20240101120000_create_products.rb
   - Stored in 'db/migrate' directory
-- Running migrations generates or updates `db/schema/rb`
+- Running migrations generates or updates `db/schema.rb`
   - Captures the current state of the database schema
 - Active Record way claims that intelligence belongs in models & not database
   - Triggers, constraints, validations in database is not recommended

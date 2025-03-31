@@ -11,13 +11,13 @@
     - Code is more maintainable, more extensible, and less buggy
 - Convention Over Configuration
   - Rails has opinions and defaults to this set of conventions
-  - Rather tahn require that you specify minutiae endless config files
+  - Rather than require that you define them yourself through endless config files
 - To create a new application called blog, run `rails new blog`
-  - this will also install gem dependencies already mentioned in Gemfile
+  - This will also install gem dependencies already mentioned in Gemfile
 
 ## Structure
 - app/
-  - Controllers, models, views, helpers, mailerss, channels, jobs, assets
+  - controllers, models, views, helpers, mailers, channels, jobs, assets
 - bin/
   - Rails scripts to start, set up, update, deploy, run application
 - config/
@@ -40,7 +40,7 @@
 - .dockerignore
 - .gitattributes
 - .gitignore
-- .rub-version
+- .ruby-version
 - config.ru
   - Rack config for rack-based servers used to start application
 - Dockerfile
@@ -49,7 +49,7 @@
 
 ## Basics
 - To start web server, run `rails server`
-  - Starts up Puma, a web serber distributed with rails by default
+  - Starts up Puma, a web server distributed with rails by default
   - To check on browser, go to 'localhost:3000'
 - Application classes and modules are available everywhere
   - It's not required to load anything under 'app' with 'require'
@@ -65,11 +65,11 @@
   - rails server -p 4000
 - Generate
   - rails generate scaffold User attr1:type1 attr2:type2
-    - Model, migration, controller, routes, views
+    - model, migration, controller, routes, views
   - rails generate model User attr1:type1 attr2:type2
-    - Model, migration
+    - model, migration
   - rails generate controller Users action1 action2
-    - Controller, helper
+    - controller, helper
   - rails generate mailer User
   - rails generate job users_cleanup
 - Destroy

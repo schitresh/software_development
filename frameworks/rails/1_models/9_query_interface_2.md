@@ -1,6 +1,6 @@
 ## Finding by SQL
 ```rb
-# Returns an array of object
+# Returns an array of objects
 Customer.find_by_sql(
   "SELECT * FROM customers
   INNER JOIN orders ON customers.id = orders.customer_id
@@ -57,9 +57,9 @@ Customer.left_joins(:reviews).distinct
         .group('customers.id')
 
 # Association Presence
-# Customers at have at least one review
+# Customers have at least one review
 Customer.where.associated(:reviews)
-# Customers at have no review
+# Customers have no review
 Customer.where.missing(:reviews)
 ```
 
@@ -67,7 +67,7 @@ Customer.where.missing(:reviews)
 - Used to prevent race conditions when updating records in the database
 - Ensures atomic updates
 
-### Optmistic Locking
+### Optimistic Locking
 - Allows multiple users to access the same record for edits
   - Checks if another process has made changes since the record was open
   - If so, the update is ignored by raising stale object error
@@ -121,7 +121,7 @@ end
 
 ## Scopes
 - Used to specify commonly used queries in method calls
-- All scope bodies should return ActiveRecord::Relation or nil to allow furthur chaining
+- All scope bodies should return ActiveRecord::Relation or nil to allow further chaining
   - That's why scopes are preferred over class methods
 
 ```rb
@@ -137,7 +137,7 @@ Book.out_of_print.costs_more_than(500)
 Book.in_print.merge(Book.out_of_print)
 Book.in_print.joins(:author).merge(Author.active)
 
-
+# Default Scope
 class Book < ApplicationRecord
   default_scope { where(out_of_print: false) }
 end

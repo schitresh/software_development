@@ -33,6 +33,7 @@ module ApplicationCable
     end
 
     private
+
       def find_verified_user
         if verified_user = User.find_by(id: cookies.encrypted[:user_id])
           verified_user
@@ -45,7 +46,7 @@ end
 ```
 
 ## Channels
-- Callbacks: (before, after)_subscribe, (before, after)_unsubscrbe
+- Callbacks: (before, after)_subscribe, (before, after)_unsubscribe
 
 ```rb
 # app/channels/application_cable/channel.rb
@@ -120,12 +121,12 @@ consumer.subscriptions.create({ channel: "ChatChannel", room: "Best Room" }, {
   },
 
   createLine(data) {
-    return `
+    return (
       <article class="chat-line">
         <span class="speaker">${data["sent_by"]}</span>
         <span class="body">${data["body"]}</span>
       </article>
-    `
+    )
   }
 })
 ```

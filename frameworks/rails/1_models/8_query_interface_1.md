@@ -54,7 +54,7 @@ Book.where('title = ? AND out_of_print = ?', params[:title], false)
 # Placeholder Conditions
 Book.where(
   'created_at >= :start_date AND created_at <= :end_date',
-  { start_date: params[:start_date], end_date: params[:end_date] }
+  start_date: params[:start_date], end_date: params[:end_date]
 )
 # Sanitizing Conditions (Required for wild cards like '%')
 Book.where('title LIKE ?', Book.sanitize_sql_like(params[:title]) + '%')
@@ -122,7 +122,7 @@ customer.save # true
 customer = Customer.find_or_create_by(first_name: 'Andy')
 customer = Customer.find_or_create_by!(first_name: 'Andy')
 
-# If an attribute (locked) should not be included in the query
+# If an attribute (say 'locked') should not be included in the query
 # But should be assigned if a new record is created
 Customer.create_with(locked: false).find_or_create_by(first_name: 'Andy')
 Customer.find_or_create_by(first_name: 'Andy') { |c| c.locked = false }

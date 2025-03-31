@@ -48,7 +48,7 @@ has_many :books, dependent: :destroy
 ## Controlling Caching
 - All the association methods are built around caching
 - It keeps the result of most recent query available for further optimizations
-- The cached is even shared across methods
+- The cache is even shared across methods
 - Call reload on the association to discard the cache
 
 ```rb

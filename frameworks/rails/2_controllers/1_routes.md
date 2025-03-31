@@ -91,7 +91,7 @@ end
 
 # ArticlesController
 # Routes are prefixed: /admin/articles
-resources :articles, path: '/admin/articles
+resources :articles, path: '/admin/articles'
 ```
 
 ## Custom Actions
@@ -142,7 +142,7 @@ end
 root to: 'pages#main'
 root 'pages#main' # shortcut for the above
 
-# Routes both /photos & /photos/:id to diplay action, id is optional parameter
+# Routes both /photos & /photos/:id to display action, id is optional parameter
 get 'photos(/:id)', to: 'photos#display'
 get 'photos/:id/:user_id', to: 'photos#show'
 get 'photos/:id/with_user/:user_id', to: 'photos#show'
@@ -158,7 +158,7 @@ get 'books/*section/:title', to: 'books#show'
 ```
 
 ## Concerns
-- Declares common routes that can be reuse3d inside other resources & routes
+- Declares common routes that can be reused inside other resources & routes
 
 ```rb
 concern :commentable do

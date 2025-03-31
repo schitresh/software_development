@@ -85,7 +85,6 @@ end
 <% content_for :head do %>
   <title>A simple page</title>
 <% end %>
-
 <p>Hello, Rails!</p>
 ```
 
@@ -99,8 +98,7 @@ end
 # They also cascade downward in hierarchy
 class ProductsController < ApplicationController
   layout "inventory"
-  layout "p
-  roduct", only: [:index, :rss]
+  layout "product", only: [:index, :rss]
 end
 ```
 

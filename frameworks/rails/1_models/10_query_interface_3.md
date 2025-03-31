@@ -21,7 +21,7 @@ end
 
 ```rb
 # SELECT books.* FROM books LIMIT 10
-# SELECT authors.* FROM authors WHERE authors.id IN (1,2,3,4,5,6,7,8,9,10)
+# SELECT authors.* FROM authors WHERE authors.id IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 Book.includes(:author).limit(10).map do |book|
   book.author.last_name
 end
@@ -31,12 +31,14 @@ Customer.includes(orders: { books: [:supplier, :author] }).find(1)
 
 # Conditions
 # If there is a where condition, it generates a left join query
-# SELECT authors.id AS t0_r0, ... books.updated_at AS t1_r5 FROM authors
+# SELECT authors.id AS t0_r0 ... books.updated_at AS t1_r5 FROM authors
 # LEFT OUTER JOIN books ON books.author_id = authors.id
 # WHERE (books.out_of_print = 1)
 Author.includes(:books).where(books: { out_of_print: true })
 
 # Conditions with SQL fragments
+# Generates two queries, one for authors and one for books
+Author.includes(:books).where("books.out_of_print = true")
 # If there is raw sql, we need to used `references` to force joined tables
 Author.includes(:books).where("books.out_of_print = true").references(:books)
 ```
@@ -47,15 +49,18 @@ Author.includes(:books).where("books.out_of_print = true").references(:books)
 
 ```rb
 # SELECT books.* FROM books LIMIT 10
-# SELECT authors.* FROM authors WHERE authors.id IN (1,2,3,4,5,6,7,8,9,10)
+# SELECT authors.* FROM authors WHERE authors.id IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 Book.preload(:author).limit(10).map do |book|
   book.author.last_name
 end
+
+# Will raise error
+Author.preload(:books).where(books: { out_of_print: true })
 ```
 
 ### Eager Load
 - Loads all specified associations using left join
-- Can specify conditions like includes
+- Can specify conditions (like includes)
 
 ```rb
 # SELECT DISTINCT books.id FROM books
@@ -64,7 +69,7 @@ end
 
 # SELECT books.id AS t0_r0, books.last_name AS t0_r1, ... FROM books
 # LEFT OUTER JOIN authors ON authors.id = books.author_id
-# WHERE books.id IN (1,2,3,4,5,6,7,8,9,10)
+# WHERE books.id IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 Book.eager_load(:author).limit(10).map do |book|
   book.author.last_name
 end

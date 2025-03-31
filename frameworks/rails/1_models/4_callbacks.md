@@ -66,10 +66,10 @@ end
 - after_save, after_create, after_update
   - Called before committing data to the database
   - If any error occurs in the callback, the transaction will be rolled back
-  - And the data will not be persised
+  - And the data will not be persisted
 - after_commit
   - Called after committing data to the database
-  - If any error occurs in the callback, data will be persisted
+  - If any error occurs in the callback, data will still be persisted
   - Should be used when model needs to interact with external system
     - That is not part of database transaction
     - Like notifications, emails, async third party calls
