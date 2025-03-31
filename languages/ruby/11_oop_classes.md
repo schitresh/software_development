@@ -15,14 +15,15 @@ class Child < Parent
   end
 end
 
-# Multiple Inheritance is not supported
-# But the behavior can be emulated using mixins
-# Refer: modules
+# Multiple Inheritance
+# Not supported, but the behavior can be emulated using mixins
 ```
 
 ## Abstraction
 - Can be implemented using inheritance and error handling
+
 ```rb
+# Abstract Class
 class Shape
   def draw
     raise Exception('Not implemented')

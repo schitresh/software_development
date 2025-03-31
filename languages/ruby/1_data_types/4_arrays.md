@@ -80,12 +80,12 @@ sum # Nesting not allowed: [[1, 2], [3]]
 sort # sort!
 reverse # reverse!
 flatten # Flattens array from [[[1, 2]], [3, 4]] to [1, 2, 3, 4]
-# Refer: iterators
+# Refer iterators
 ```
 
 ### Insert
 ```rb
-<< obj # Add obj using shovel operator
+arr << obj # Add obj using shovel operator
 push(obj) # Add obj at end
 unshift(obj) # Add obj at beginning
 insert(index, obj)

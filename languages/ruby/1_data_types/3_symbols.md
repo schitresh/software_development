@@ -1,5 +1,6 @@
 ## Symbols
--
+- Immutable
+
 ```rb
 status = :draft
 status[1] # 'r'

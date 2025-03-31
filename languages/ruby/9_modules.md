@@ -1,5 +1,5 @@
 ## Modules
-- Groups together methods, classes, constants
+- Groups methods, classes, constants together
 - Provides a namespace and prevents name clashes
 - Implements mixin
 
@@ -46,7 +46,7 @@ Order::Detail::Payment.process
   - '.rb' is required
   - Reloads the code every time
   - Picks up any changes made in file while the program is running
-  - May become overhead if the file is being used at many places
+  - May become an overhead if the file is being used at many places
 - `autoload :OrderDetail, './order_detail.rb'`
   - Lazy load, won't load the library that is not being used
 
@@ -57,7 +57,7 @@ Order::Detail::Payment.process
 ### Include
 - Imports entities as instance methods & variables
 - Can be included in class or another module
-- Inserts entitiess into ancestory chain between the class and superclass
+- Inserts entities into ancestory chain between the class and the superclass
 
 ```rb
 module OrderDetail
@@ -75,9 +75,8 @@ Order.process # Raises error
 
 # Module methods can be overrided in class
 # Even if module is included after the method in class
-# [Order, OrderDetail, ...]
-Order.ancestors
-Order.process # Preference: Order method, OrderDetail method
+Order.ancestors # [Order, OrderDetail, ...]
+Order.new.process # Preference: Order method, OrderDetail method
 
 # Can be nested (applies to extend & prepend as well)
 module OrderCategory
@@ -88,6 +87,7 @@ end
 ### Extend
 - Imports entities as class methods & variables
 - Can be included in class or another module
+
 ```rb
 module OrderDetail
   def process
@@ -102,9 +102,8 @@ Order.process
 Order.new.process # Raises error
 
 # Module methods can be overrided in class
-# Even if module is included after the method in class
-# [Order, ...] since they are extended as class
-Order.ancestors
+# Even if module is extended after the method in class
+Order.ancestors # [Order, ...] OrderDetail not included since it is extended to the class
 Order.process # Preference: Order method, OrderDetail method
 ```
 
@@ -124,19 +123,15 @@ end
 Order.new.process
 Order.process # Raises error
 
-Order.new.process
-Order.process # Raises error
-
 # Module methods cannot be overrided in class
-# Even if module is included after the method in class
-# [OrderDetail, Order, ...]
-Order.ancestors
+# Even if module is prepended after the method in class
+Order.ancestors # [OrderDetail, Order, ...]
 Order.process # Preference: OrderDetail method, Order method
 ```
 
 ## Module Methods
 ```rb
-# methods defined with self are specific to module
+# Methods defined with self are specific to module
 module OrderDetail
   def self.process
   end
@@ -151,13 +146,12 @@ module OrderDetail
   end
 end
 
-# Module methods cannot be extended
+# Module methods (self methods) cannot be extended
 class Order
   include OrderDetail
   # Or, extend OrderDetail
   # Or, prepend OrderDetail
 end
-
 Order.new.process # Raises error
 Order.process # Raises error
 ```

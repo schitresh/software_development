@@ -2,7 +2,7 @@
 - Syntax errors
 - Logical errors: Output doesn't match the expectation
 - Runtime error or exception
-  - An event occuring during the execution disrupts the normal flow
+  - An event occurring during the execution disrupts the normal flow
 
 ```rb
 raise ExceptionType.new(message)
@@ -13,12 +13,12 @@ raise(StandardError, 'error message')
 ## Try Block
 ```rb
 begin:
-  # Peform operations
+  # Perform operations
 rescue ExceptionOne => e
   p(e.message)
   p(e.backtrace)
 rescue ExceptionTwo, ExceptionThree
-  # Peform operations
+  # Perform operations
 rescue
   # Any other exceptions
 else

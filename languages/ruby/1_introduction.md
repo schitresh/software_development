@@ -7,6 +7,7 @@
 - Automatic garbage collection
 - Various external libraries are provided through gems
 - Everything in ruby is an object except the blocks
+- Shell for interpreter: irb (Interactive Ruby)
 
 ## Basics
 ```rb
@@ -29,8 +30,8 @@ print [1, 2] # 12
 # Prints in new line
 puts 'Hello'
 puts val1
-puts val1, val2 # val1 and val2 will be printed in separate lines
-p [1, 2] # 1 & 2 will be printed in separate lines
+puts val1, val2 # val1 & val2 printed in separate lines
+puts [1, 2] # 1 & 2 printed in separate lines
 
 # Raw print
 p [1, 2] # [1, 2]
@@ -44,6 +45,4 @@ obj.freeze
 
 # Safe Navigation
 person&.name&.display
-
-# Shell for interpreter: irb (Interactive Ruby)
 ```

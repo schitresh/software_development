@@ -63,14 +63,14 @@ class Animal
     end
 end
 
-# Private attributes can be accessed through this
+# Private attributes can be accessed through special methods
 emp = Employee.new('John Wick', 25)
 emp.instance_variable_get('@name')
 emp.instance_variable_set('@name', 'Tom Cruise')
 ```
 
 ## Getter and Setter
-### Usng Regular Methods
+### Using Regular Methods
 ```rb
 class Employee
   def initialize(name, age)

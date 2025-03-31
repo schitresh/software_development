@@ -1,7 +1,8 @@
 ## If Else
+- Non nil values are evaluated to true
+- 0 is also evaluated to true
+
 ```rb
-# Non nil values are evaluated to true
-# 0 is also evaluate to true
 # If
 if marks < 30
   result = 'Failed'
@@ -27,9 +28,10 @@ result = 'Failed' unless marks > 30
 ```
 
 ## Match Case
+- Case values can be any literal, even list
+- Executes the first matched condition and returns
+
 ```rb
-# Case values can be any literal, even list
-# Exceutes the first matched condition and returns
 case category:
 when 'A'
   'Distinction'

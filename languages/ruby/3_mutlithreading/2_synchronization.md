@@ -2,6 +2,13 @@
 ```rb
 $mutex = Mutex.new
 
+def task(thread_name)
+  (1..4).each do |i|
+    sleep(1)
+    p("Thread #{thread_name}: #{i}")
+  end
+end
+
 class Counter
   def initialize(name)
     @name = name
@@ -11,13 +18,6 @@ class Counter
     $mutex.synchronize do
       task(@name)
     end
-  end
-end
-
-def task(thread_name)
-  (1..4).each do |i|
-    sleep(1)
-    p("Thread #{thread_name}: #{i}")
   end
 end
 

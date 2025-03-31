@@ -9,10 +9,10 @@ def producer
     $mutex.synchronize do
       num = Random.rand(1..10)
       $numbers.push(num)
-      p("A generated number: #{num}")
+      p("P generated number: #{num}")
 
       $condition.signal
-      p('A issued notification')
+      p('P issued notification')
     end
 
     sleep(5)
@@ -22,11 +22,11 @@ end
 def consumer
   3.times do
     $mutex.synchronize do
-      p('B waiting for update')
+      p('C waiting for update')
       $condition.wait($mutex) while $numbers.empty?
 
       num = $numbers.shift
-      p("B obtained number: #{num}")
+      p("C obtained number: #{num}")
     end
 
     sleep(5)

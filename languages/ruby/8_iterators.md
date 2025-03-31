@@ -1,7 +1,7 @@
 ## Iterators
-```rb
-# Works on collections like arrays and hashes
+-  Works on collections like arrays and hashes
 
+```rb
 # Inline Block
 array.each { |x| puts x }
 # Multiline Block
@@ -9,18 +9,19 @@ array.each do |x|
   puts x
 end
 
+# `array.map(&lambda_or_proc)`
 # & is used to pass lambda or proc as a block to a method
-# For example: `array.map(&lambda_or_proc)`
 # & when combined with an object calls to_proc on the object
 # Explicit calling will be like `:to_s.to_proc.call(x)`
-# When combined with & like `&:to_s` pass it as a block
+# When combined with & (like `&:to_s`), it passes it as a block
 # This is equivalent to array.map { |x| x.to_s }
 array.map(&:to_s)
 
 # Bang operator
 # Updates the original array
-# Without bang iterators return a new array: array.map(&:to_s)
 array.map!(&:to_s)
+# Without bang operator, it will return a new array
+array.map(&:to_s)
 
 # With index
 array.each_with_index { |item, index| p(item, index) }
@@ -74,9 +75,10 @@ array.reduce(&:+)
 # Similar iterators: reverse_by, min_by, max_by, group_by
 array.sort_by { |word| word.length }
 
-# With initial object
+# With an initial object
 array.each_with_object({}) { |x, obj| obj[x] = x * 2 }
 array.each_with_object([]) { |x, obj| obj.push(x * 2) }
 
+# Zips values with each other
 [1, 2].zip([3, 4]) # [[1, 3], [2, 4]]
 ```

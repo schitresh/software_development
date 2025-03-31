@@ -12,12 +12,13 @@ def test
   puts 'Method Ended'
 end
 
-# Method Started
-# Block Executed
-# Method Ended
 test do
   puts 'Block Executed'
 end
+# Method Started
+# Block Executed
+# Method Ended
+
 # Alternatives
 # test { puts 'Block Executed' }
 # test {
@@ -31,13 +32,13 @@ def test
   puts 'Method Ended'
 end
 
+test do |text|
+  puts "Block Executed: #{text}"
+end
 # Method Started
 # Block Executed: Hello
 # Block Executed: World
 # Method Ended
-test do |text|
-  puts "Block Executed: #{text}"
-end
 ```
 
 ### Using Reference
@@ -48,15 +49,19 @@ def test(&block)
   puts 'Method Ended'
 end
 
+test do
+  puts 'Block Executed'
+end
 # Method Started
 # Block Executed
 # Method Ended
-test {
-  puts 'Block Executed'
-}
 ```
 
 ## Proc
+- A proc object is an encapsulation of a block of code
+  - Which can be stored in a local variable, passed to a method or another proc
+  - And can be called
+
 ```rb
 adder = Proc.new { |a, b| a + b }
 adder.call

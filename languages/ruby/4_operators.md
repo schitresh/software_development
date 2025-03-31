@@ -1,8 +1,13 @@
 ## Arithmetic Operators
+- Includes regular operators like +, -, *, /
+
 ```rb
-# Includes regular operators like +, -, *, /
-a / b # Floor Division: 11 / 4 = 2
-a / b # Floor Division: 11.0 / 4 or 11 / 4.0 = 2.75
+# Floor Division
+# 11 / 4 = 2
+# 11.0 / 4 = 2.75
+# 11 / 4.0 = 2.75
+a / b
+
 a % b # Modulus
 a ** b # Exponent
 ```
@@ -10,16 +15,22 @@ a ** b # Exponent
 ## Logical Operators
 ```rb
 a && b
-a and b
-# 'and' has lower precedence than '&&'
-value = 'a' && 'b' # value = 'b' because `value = 'a'` is evaluated first
-value = 'a' and 'b' # value = 'a' because `'a' and 'b'` is evaluated first
+a and b # 'and' has lower precedence than '&&'
+# 'and' has even lower precedence than '='
+
+# 'b' will be assigned because ('a' && 'b') is evaluated first
+value = 'a' && 'b' # value = ('a' && 'b')
+# 'a' will be assigned because (value = 'a') is evaluated first
+value = 'a' and 'b' # (value = 'a') and ('b')
 
 a || b
-a or b
-# 'or' has lower precedence than '|'
-value = nil || 'b' # value = 'nil' because `value = nil` is evaluated first
-value = nil or 'b' # value = 'b' because `nil or 'b'` is evaluated first
+a or b # 'or' has lower precedence than '||'
+# 'or' has even lower precedence than '='
+
+# nil will be assigned because (nil || 'b') is evaluated first
+value = nil || 'b' # value = ('a' || 'b')
+# 'b' will be assigned because (value = nil) is evaluated first
+value = nil or 'b' # (value = 'a') or ('b')
 
 !a
 not a
@@ -54,6 +65,7 @@ person_object.is_a?(PersonClass)
 ```rb
 # Generic or value equality
 a == b
+
 a = 1
 b = 1
 a == b # true
@@ -62,6 +74,7 @@ a == b # true
 # Hash equality
 # If both have same type & equal values
 a.eql?(b)
+
 a = 1
 b = 1
 a.eql?(b) # true
@@ -72,6 +85,7 @@ a.eql?(b) # true
 # Used in 'when' clauses of 'case'
 # Useful implementations in range, regex, proc
 a === b
+
 2 === 2.0 # true
 2.0 === 2 # true
 (1..5) === 2 # true
@@ -81,6 +95,7 @@ Integer === 5 # true
 
 # Identity Comparison
 a.equal?(b) # If both have same object id
+
 a = 10
 b = 10
 a.equal?(b) # false

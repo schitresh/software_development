@@ -1,4 +1,6 @@
 ## Strings
+- Mutable
+
 ```rb
 text = 'hello'
 text[1] # 'e' (Single char is also a string)
@@ -20,7 +22,7 @@ para = 'Multiline'\
 ```rb
 "Employee name is #{name}"
 "Category code is #{get_code(product)}"
-"Category code is #{category || DEFAULT_CATEGORY)}"
+"Category code is #{category || DEFAULT_CATEGORY}"
 "Pecentage: #{(value / 20) * 100}"
 ```
 
@@ -65,7 +67,7 @@ reverse # reverse!
 ### Find and replace
 ```rb
 index(substr) # rindex
-count(substr) # Counts occurence of substring
+count(substr) # Counts occurrence of substring
 
 tr(substr, replace_with)
 sub(regex_or_string, replace_with) # Replaces the first matching regex or string
@@ -80,7 +82,7 @@ delete_suffix(suffix)
 ```
 
 ### Split and Join
-```py
+```rb
 strip # Removes trailing whitespaces
 # lstrip, rstrip
 split(delimiter_or_regex) # Deletes delimiter, splits and returns list of subsrings
@@ -90,7 +92,7 @@ array.join(str) # Joins the array using the string
 ```
 
 ### Case
-```py
+```rb
 casecmp?(str2) # Compares string by ignoring case
 # Use with ! to edit in place
 downcase

@@ -1,4 +1,6 @@
 ## Numbers
+- Immutable
+
 ```rb
 abs
 pow(y)

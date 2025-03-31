@@ -1,4 +1,6 @@
 ## Hashes
+- Mutable
+
 ```rb
 subjects = { phy: 'Physics', chem: 'Chemistry', math: 'Mathematics' } # Symbol keys
 numbers = { 1 => 'one', 2 => 'two' } # Number keys
@@ -59,5 +61,6 @@ dup
 
 compact # Removes nil elements
 delete(:key) # Removes the key and returns the value
-except(**keys) # Get a new hash with given keys
+slice(**keys) # Get a new hash with the given keys
+except(**keys) # Get a new hash except the given keys
 ```

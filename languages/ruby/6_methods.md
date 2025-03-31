@@ -20,8 +20,8 @@ alias is_even_alias is_even
 - Behavior of arguments depends on whether they are mutable or immutable
 
 ### Immutable Arguments
-- If the passed object is immutable (like numeric), arguments are pass by reference
-- Since variable is a reference to the object in memory
+- If the passed object is immutable (like numeric), arguments are pass by value
+- Changing their value creates a new object in memory and leaves the original variable unchanged
 
 ```rb
 def process(value)
@@ -35,8 +35,8 @@ p(value) # 10
 ```
 
 ### Mutable Arguments
-- If the passed object is mutable, arguments are pass by value
-- Changing their value creates a new object in memory and leaves the original variable unchanged
+- If the passed object is mutable, arguments are pass by reference
+- Since variable is a reference to the object in memory
 
 ```rb
 def process(array)

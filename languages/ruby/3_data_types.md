@@ -1,6 +1,8 @@
 ## Data Types
 - Each data type is based on a class
 - `nil` is used to denote nothing
+- Mutable: String, Array, Hash
+- Immutable: Integer, Float, Boolean, Symbol
 
 ## Boolean
 ```rb
@@ -85,7 +87,7 @@ list_map[[1,2]] # 'one'
 ## Type Casting
 ### Implicit Casting
 - When a language compiler/interpreter automatically converts an object
-- RUby is strongly typed
+- Ruby is strongly typed
   - Doesn't allow automatic type conversion between unrelated data types
   - Examples
     - 1 + '2' will raise an error
@@ -93,11 +95,12 @@ list_map[[1,2]] # 'one'
     - 1 + true will raise an error
 - Object with lesser byte size is upgraded to match the larger byte size
   - In 1 + 2.5, 1 will be upgraded to Float as 1.0
-  - This is because converting 2.5 to Integer wil result in loss of data
+  - This is because converting 2.5 to Integer will result in loss of data
 
 ### Explicit Casting
-- Using python's built-in functions to perform explicit conversions
+- Using built-in functions to perform explicit conversions
   - Such as string to integer
+
 ```rb
 100.to_s # 100
 10.5.to_s # '10.5'
