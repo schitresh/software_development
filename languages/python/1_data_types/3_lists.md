@@ -69,7 +69,7 @@ sum(items) # Nesting not allowed: sum((1, 2), (3))
 list(seq) # Converts sequence or iterator to list
 sorted(items)
 reversed(items)
-# Refer: iterators
+# Refer iterators
 ```
 
 ## Instance Methods

@@ -1,4 +1,6 @@
 ## Numbers
+- Immutable
+
 ```py
 abs(x)
 pow(x, y)

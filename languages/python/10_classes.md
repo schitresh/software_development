@@ -27,6 +27,8 @@ delattr(emp, 'name')
 ```
 
 ## Class Methods
+- Can be called through class or instance
+
 ```py
 class Employee:
   # Class Variables
@@ -40,19 +42,26 @@ class Employee:
   @classmethod
   def print_custom_dept(klass, dept):
     print(dept)
+
+Employee.print_dept() # Finance
+Employee().print_dept() # Finance
 ```
 
 ## Static Methods
 - Doesn't require class or self object
 - Used for functions that can be standalone but somehow are in context of the class
+- Can be called through class or instance
 
 ```py
 class Employee:
   # Static Methods
 
   @staticmethod
-  def add(klass, a, b):
+  def add(a, b):
     return a + b
+
+Employee.add(1, 2) # 3
+Employee().add(1, 2) # 3
 ```
 
 ## Access Modifiers
@@ -70,10 +79,13 @@ class Employee:
   def display_name(self):
     print(self.name)
 
+emp = Employee('John Wick', 25, 'Finance')
+emp._age # 25
+emp.__dept # Raises error
+
 # Private attributes can be accessed through Mangling
 # But should be refrained from use
-emp = Employee('John Wick', 25)
-emp._Employee__dept
+emp._Employee__dept # Finance
 ```
 
 ## Getter and Setter
@@ -114,17 +126,15 @@ class Employee:
   def name(self):
     return self.__name
 
-  @property.setter
+  @name.setter
   def name(self, name):
     # Can add validations & processing
     self.__name = name
 
-  @property.deleter
+  @name.deleter
   def name(self, name):
     # Can add validations
     del self.__name
-
-  name = property(get_name, set_name, delete_name)
 
 emp = Employee('John Wick', 25)
 emp.name

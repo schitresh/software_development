@@ -5,7 +5,7 @@ class Parent:
     self.name = name
 
 class Child(Parent):
-  def __init__(self, name):
+  def __init__(self, name, dept):
     super().__init__(name)
     self.dept = 'Finance'
 

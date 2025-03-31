@@ -25,6 +25,8 @@ def test_decorator(test_function):
 def test_function(value):
   print('hello')
 
+test_function() # hi, hello
+
 # Method 2: By reassigning
 def test_function():
   print('hello')

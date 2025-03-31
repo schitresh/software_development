@@ -74,7 +74,7 @@ word_map['one'] # 1
 ```py
 # set
 # Stores unique immutable objects (int, float, complex, bool, string, tuple)
-# But is itself is mutable
+# But it itself is mutable
 # Not indexed or ordered:
 # The position of items is optimized by python
 # To perform operations over set as defined in mathematics
@@ -119,11 +119,12 @@ print(view) # <memory at 0x00000186FFAA3580>
 - Object with lesser byte size is upgraded to match the larger byte size
   - In 1 + 2.5, 1 will be upgraded to float as 1.0
   - int occupies 4 bytes, float occupies 8 bytes
-  - This is because converting 2.5 to int wil result in loss of data
+  - This is because converting 2.5 to int will result in loss of data
 
 ### Explicit Casting
 - Using python's built-in functions to perform explicit conversions
   - Such as string to integer
+
 ```py
 str(100) # '100'
 str(10.5) # '10.5'
@@ -132,7 +133,7 @@ str([1, 2]) # '[1, 2]'
 int('100') # 100
 int('110', 2) # Binary: 6
 int('2A9', 16) # Hex: 681
-int(10.5) # Raises error
+int(10.5) # 10
 int('Hello') # Raises error
 float(100) # 100.0
 

@@ -2,7 +2,7 @@
 - Interpreted language
   - No need to compile the program before executing
     - Where machine version of the entire source program is generated
-    - And it fails if a single erroneous statement
+    - And it fails if a single erroneous statement occurs
   - Processed at runtime by the interpreter
     - Interpreter reads the source code statement by statement
     - It takes one instruction from the code at a time
@@ -16,12 +16,12 @@
   - Doesn't allow automatic type conversion between unrelated data types
   - That is, 1 + '2' will raise an error
   - Languages like javascript are weakly typed (1 + '2' = '12')
+- Blocks of code are denoted by line indentation which is rigidly enforced
 - Automatic garbage collection
 - Supports imperative, structured and OOP methodology
 - PEP (Python Enhancement Proposal)
   - Facilitates new features and maintains readability
   - Allows anyone to submit a PEP for a new feature or library
-- Blocks of code are denoted by line indentation which is rigidly enforced
 
 ## Applications
 - Data science
@@ -30,7 +30,7 @@
 - Machine learning
   - Libraries like Scikit-learn and TensorFlow help in building models
   - For prediction of trends based on past data
-  - Like custom satisfaction, projected values of stocks
+  - Like customer satisfaction, projected values of stocks
 - Web Development
   - Django, Flask, Pyramid facilitate rapid web application development
 - Computer vision & image processing

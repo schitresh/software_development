@@ -37,13 +37,16 @@ pr.process(data)
   - And not the executable statements
   - This can be done by checking `__name__`
   - Since it returns `__main__` when the script is executed
-  ```py
-  def add(a, b):
-    return a + b
 
-  if __name__ == '__main__':
-    print(add(10, 20))
-  ```
+```py
+# module.py
+def add(a, b):
+  return a + b
+
+# Do not run executable statements if this module is imported somewhere
+if __name__ == '__main__':
+  print(add(10, 20))
+```
 
 ## Package
 - Heirarchical file directory consisting of multiple modules

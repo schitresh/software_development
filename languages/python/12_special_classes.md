@@ -6,7 +6,7 @@ class Test:
   def __new__(klass):
     if klass._instance is None:
       print('yes')
-      klass.instance = super(Test, klass).__new__(klass)
+      klass.__instance = super().__new__(klass)
 
     return klass._instance
 ```
@@ -35,7 +35,7 @@ obj.print_name()
 
 ## Enum
 ```py
-from enum import Enum
+from enum import Enum, unique
 
 class subjects(Enum):
   PHYSICS = 1
@@ -47,6 +47,7 @@ class subjects(Enum):
 class subjects(Enum):
   PHYSICS = 1
   MATHS = 1
+# ValueError: duplicate values found in <enum 'subjects'>: MATHS -> PHYSICS
 
 # String based
 class subjects(Enum):

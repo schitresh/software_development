@@ -10,8 +10,8 @@ is_even(4)
 - Behavior of arguments depends on whether they are mutable or immutable
 
 ### Immutable Arguments
-- If the passed object is immutable (like numeric), arguments are pass by reference
-- Since python variable is a reference to the object in memory
+- If the passed object is immutable (like numeric), arguments are pass by value
+- Changing their value creates a new object in memory and leaves the original variable unchanged
 
 ```py
 def process(value):
@@ -24,8 +24,8 @@ print(value) # 10
 ```
 
 ### Mutable Arguments
-- If the passed object is mutable, arguments are pass by value
-- Changing their value creates a new object in memory and leaves the original variable unchanged
+- If the passed object is mutable, arguments are pass by reference
+- Since python variable is a reference to the object in memory
 
 ```py
 def process(array):
@@ -61,11 +61,13 @@ def process(val1 = 5):
 # Should be used after positional arguments
 def add(*args):
   return sum(args)
+
 add(10, 20, 30, 40)
 
 def process(*args, **kwargs):
   sum(args)
   print(kwargs)
+
 process(10, 20, name = 'John Wick', address = 'New York')
 ```
 
@@ -90,8 +92,8 @@ def total(a: 'Marks in Physics', b: 'Marks in Chemistry', c: 'Marks in Maths') -
   return a + b + c
 
 # With default arguments
-def percent(a: 'physics', b: 'maths', d: 'max_marks' = 100) -> int:
-  return ((a + b) * 100)/(2 * max_marks)
+def percent(a: 'physics', b: 'maths', c: 'max_marks' = 100) -> int:
+  return ((a + b) * 100)/(2 * c)
 
 # With arbitrary arguments
 def process(*args: 'numbers', **kwargs: 'data'):

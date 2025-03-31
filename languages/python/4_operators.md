@@ -1,6 +1,7 @@
 ## Arithmetic Operators
+- Includes regular operators like +, -, *, /
+
 ```py
-# Includes regular operators like +, -, *, /
 a / b # Float Division: 5 / 2 = 2.5
 a // b # Floor Division: 5 / 2 = 2
 a % b # Modulus

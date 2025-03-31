@@ -1,6 +1,7 @@
 ## If Else
+- Any non-zero and non-null values are evaluated to True
+
 ```py
-# Any non-zero and non-null values are evaluated to True
 if marks < 30:
   result = 'Failed'
 elif marks > 75:
@@ -36,13 +37,10 @@ for key, val in data.items():
 
 for key in data:
   print(key)
-```
 
-### For Else loop
-- Executes else when the loop terminates
-- Not executed when terminated by 'break' statement
-
-```py
+# For Else loop
+# Executes else when the loop terminates
+# Not executed when terminated by 'break' statement
 # Will print 1, 2, list ended
 for i in range(1, 3):
   print(i, end=', ')
@@ -79,9 +77,9 @@ for item in words:
 
 # pass
 # Does nothing
-# Ellipses (...) can also be instead of pass keyword
+# Ellipses (...) can also be used instead of pass keyword
 # Will print 'hello world'
 for item in words:
-  if item == 'hello': continue
+  if item == 'hello': pass # do nothing
   print(item, end=' ')
 ```

@@ -16,7 +16,7 @@ next(it) # To get the next object from iterable like iter or reversed
 reversed(seq)
 
 # Returns a list with items sorted
-# key is usued for custom sorting function
+# key is used for custom sorting function
 # rev can be true or false
 sorted(seq, key = func, reverse = rev)
 

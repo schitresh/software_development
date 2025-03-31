@@ -2,7 +2,7 @@
 - A computer program by default executes instructions in a sequential manner
 - Multi-threading is a mechanism where the main task is divided into threads
   - And executed in an overlapping manner
-  - This makes the execution faster si
+  - This makes the execution faster
 - Threads
   - Light-weight sub-processes in a single program
   - Threads of a single program share the same memory space

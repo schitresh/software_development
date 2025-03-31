@@ -2,7 +2,7 @@
 - Syntax errors
 - Logical errors: Output doesn't match the expectation
 - Runtime error or exception
-  - An event occuring during the execution disrupts the normal flow
+  - An event occurring during the execution disrupts the normal flow
 
 ```py
 raise ExceptionType(args)
@@ -15,13 +15,13 @@ raise Exception('error') from AnotherException
 ## Try Block
 ```py
 try:
-  # Peform operations
+  # Perform operations
 except ExceptionOne as e:
   print(e) # Contains the reason for exception
   repr(e.__context__)
   repr(e.__cause__)
 except ExceptionTwo, ExceptionThree:
-  # Peform operations
+  # Perform operations
 except:
   # Any other exceptions
 else:
@@ -30,14 +30,14 @@ else:
 # Try-Finally
 # Finally clause cannot be used with else clause
 try:
-  # Peform operations
+  # Perform operations
 finally:
   # Must execute whether an exception is raised or not
 
 try:
-  # Peform operations
+  # Perform operations
 except ExceptionOne:
-  # Peform operations
+  # Perform operations
 finally:
   # Must execute whether an exception is raised or not
 ```

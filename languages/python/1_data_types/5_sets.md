@@ -32,8 +32,8 @@ items = {1, 2, 2, 2, 3} # {1, 2, 3}
 
 ### Accessing
 ```py
-# Using positional index will raise error
 # Can only traverse through a set
+# Using positional index will raise error
 # subjects[1]
 # subjects[1] = 'Statistics'
 # del subjects[1]
