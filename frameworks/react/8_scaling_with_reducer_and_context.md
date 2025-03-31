@@ -39,10 +39,10 @@ function tasksReducer(tasks, action) {
       return [...tasks, { id: action.id, text: action.text, done: false }];
     }
     case 'changed': {
-      return tasks.map(t => t.id === action.task.id ? action.task : t);
+      return tasks.map((t) => t.id === action.task.id ? action.task : t);
     }
     case 'deleted': {
-      return tasks.filter(t => t.id !== action.id);
+      return tasks.filter((t) => t.id !== action.id);
     }
     default: {
       throw Error('Unknown action: ' + action.type);
@@ -60,8 +60,8 @@ import { TasksProvider } from './TasksContext.js';
 export default function TaskApp() {
   return (
     <TasksProvider>
-      <AddTask />
-      <TaskList />
+      <AddTask/>
+      <TaskList/>
     </TasksProvider>
   );
 }
@@ -86,7 +86,7 @@ export default function AddTask() {
       <input
         placeholder='Add task'
         value={text}
-        onChange={e => setText(e.target.value)}
+        onChange={(e) => setText(e.target.value)}
       />
       <button onClick={handleTaskAdd}>
         Add
@@ -105,9 +105,9 @@ export default function TaskList() {
   const tasks = useContext(TasksContext);
   return (
     <ul>
-      {tasks.map(task => (
+      {tasks.map((task) => (
         <li key={task.id}>
-          <Task task={task} />
+          <Task task={task}/>
         </li>
       ))}
     </ul>
@@ -130,7 +130,7 @@ function Task({ task }) {
 
   const renderTaskEdit = () => (
     <>
-      <input value={task.text} onChange={handleTaskEdit} />
+      <input value={task.text} onChange={handleTaskEdit}/>
       <button onClick={() => setIsEditing(false)}>
         Save
       </button>

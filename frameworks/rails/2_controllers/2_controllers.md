@@ -41,7 +41,7 @@ end
   - `GET /clients?ids[]=1&ids[]=2&ids[]=3`
   - params[:ids] will be ['1', '2', '3']
 - Hash
-  - `<input type="text" name="client[address][city]" value="Carrot City" />`
+  - `<input type="text" name="client[address][city]" value="Carrot City"/>`
   - params[:address] will be { "city" => "Carrot City" }
 
 ### Strong Params

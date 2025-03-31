@@ -44,7 +44,7 @@
       - React won't know to re-synchronize the Effect when it changes
   - Refs because `ref.current` is mutable and changing it doesn't trigger a re-render
 - Check if constants (declarations) can be moved outside the component
-  - Or if variables (declarations) can be moved inside useEffect so that they're not react
+  - Or if variables (declarations) can be moved inside useEffect so that they're not reactive
 
 ### Objects and Functions as Dependencies
 - Avoid relying on objects and functions as dependencies
@@ -103,9 +103,11 @@ function ChatRoom({ options }) {
 // Bad: Dependency on messages is not declared
 function ChatRoom({ roomId }) {
   const [messages, setMessages] = useState([]);
+
   useEffect(() => {
     const connection = createConnection();
     connection.connect();
+
     connection.on('message', (receivedMessage) => {
       setMessages([...messages, receivedMessage]);
     });
@@ -116,12 +118,15 @@ function ChatRoom({ roomId }) {
 // But chat will re-connect every time a new message is received
 function ChatRoom({ roomId }) {
   const [messages, setMessages] = useState([]);
+
   useEffect(() => {
     const connection = createConnection();
     connection.connect();
+
     connection.on('message', (receivedMessage) => {
       setMessages([...messages, receivedMessage]);
     });
+
     return () => connection.disconnect();
   }, [roomId, messages]);
 }
@@ -129,12 +134,15 @@ function ChatRoom({ roomId }) {
 // Good: Chat won't reconnect every time a new message is received
 function ChatRoom({ roomId }) {
   const [messages, setMessages] = useState([]);
+
   useEffect(() => {
     const connection = createConnection();
     connection.connect();
+
     connection.on('message', (receivedMessage) => {
-      setMessages(msgs => [...msgs, receivedMessage]);
+      setMessages((msgs) => [...msgs, receivedMessage]);
     });
+
     return () => connection.disconnect();
   }, [roomId]);
 }

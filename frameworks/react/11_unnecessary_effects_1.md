@@ -121,7 +121,7 @@ export default function ProfilePage({ userId }) {
 
 // State in Profile and below will reset automatically on key change
 export default function ProfilePage({ userId }) {
-  return <Profile userId={userId} key={userId} />
+  return <Profile userId={userId} key={userId}/>
 }
 function Profile({ userId }) {
   const [comment, setComment] = useState('');
@@ -172,6 +172,6 @@ function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
-  const selection = items.find(item => item.id === selectedId) ?? null;
+  const selection = items.find((item) => item.id === selectedId) ?? null;
 }
 ```

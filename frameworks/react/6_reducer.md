@@ -36,7 +36,7 @@ const TaskApp = () => {
 
   return (
     <>
-      <AddTask onAddTask={handleAddTask} />
+      <AddTask onAddTask={handleAddTask}/>
       <TaskList
         tasks={tasks}
         onChangeTask={handleChangeTask}

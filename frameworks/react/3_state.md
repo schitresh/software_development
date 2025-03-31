@@ -124,9 +124,9 @@ const Counter = () => {
 
         // To set state based on the previous value, updater function can be used
         // React adds that function to its queue
-        setNumber(n => n + 1); // 1
-        setNumber(n => n + 1); // 2
-        setNumber(n => n + 1); // 3
+        setNumber((n) => n + 1); // 1
+        setNumber((n) => n + 1); // 2
+        setNumber((n) => n + 1); // 3
       }}>+3</button>
     </>
   )

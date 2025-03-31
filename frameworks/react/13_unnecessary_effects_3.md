@@ -55,14 +55,14 @@ function Toggle({ isOn, onChange }) {
   - When child components update the state of their parent components in Effects
   - The data flow becomes very difficult to trace
 - Since both the child and the parent need the same data
-    - Let the parent component fetch that data, and pass it down to the child
-    - This is simpler and keeps the data flow predictable
+  - Let the parent component fetch that data, and pass it down to the child
+  - This is simpler and keeps the data flow predictable
 
 ```js
 // Avoid: Passing data to the parent in an Effect
 function Parent() {
   const [data, setData] = useState(null);
-  return <Child onFetched={setData} />;
+  return <Child onFetched={setData}/>;
 }
 
 function Child({ onFetched }) {
@@ -75,7 +75,7 @@ function Child({ onFetched }) {
 // Good: Passing data down to the child
 function Parent() {
   const data = useSomeAPI();
-  return <Child data={data} />;
+  return <Child data={data}/>;
 }
 
 function Child({ data }) {
@@ -106,6 +106,7 @@ function useOnlineStatus() {
 
     window.addEventListener('online', updateState);
     window.addEventListener('offline', updateState);
+
     return () => {
       window.removeEventListener('online', updateState);
       window.removeEventListener('offline', updateState);
@@ -122,6 +123,7 @@ function ChatIndicator() {
 function subscribe(callback) {
   window.addEventListener('online', callback);
   window.addEventListener('offline', callback);
+
   return () => {
     window.removeEventListener('online', callback);
     window.removeEventListener('offline', callback);
@@ -173,7 +175,7 @@ function SearchResults({ query }) {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    fetchResults(query, page).then(json => {
+    fetchResults(query, page).then((json) => {
       setResults(json);
     });
   }, [query, page]);
@@ -190,9 +192,11 @@ function SearchResults({ query }) {
 
   useEffect(() => {
     let ignore = false;
-    fetchResults(query, page).then(json => {
+
+    fetchResults(query, page).then((json) => {
       if (!ignore) setResults(json);
     });
+
     return () => { ignore = true; };
   }, [query, page]);
 
@@ -217,11 +221,13 @@ function useData(url) {
 
   useEffect(() => {
     let ignore = false;
+
     fetch(url)
-      .then(response => response.json())
-      .then(json => {
+      .then((response) => response.json())
+      .then((json) => {
         if (!ignore) setData(json);
       });
+
     return () => { ignore = true; };
   }, [url]);
 

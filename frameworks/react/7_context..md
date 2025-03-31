@@ -9,8 +9,8 @@
   - Start by passing props and see if context is really required
   - Use jsx as children to reduce the number of layers
     - E.g. let's say you pass data props to visual components that don't use them directly
-      - Like this:<Layout posts={posts} />
-      - Use this instead: <Layout><Posts posts={posts} /></Layout>
+      - Like this: <Layout posts={posts}/>
+      - Use this instead: <Layout><Posts posts={posts}/></Layout>
 - Uses cases for context
   - Theming: Styling & appearance (e.g. dark mode)
   - Currently logged in user

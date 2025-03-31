@@ -18,7 +18,7 @@
 
 ```js
 const Profile = () => (
-  <img src='image_url' />
+  <img src='image_url'/>
 );
 
 const Gallery = () => (
@@ -33,7 +33,7 @@ const Gallery = () => (
 - Syntax extension that is written like html
 - But actually it is javascript under the hood
 - Lets you embed markup inside javascript
-- Variables or logic are enclosed within `{}`
+- Variables or logical statements are enclosed within `{}`
 
 ### JSX Rules
 - Return a single root element
@@ -70,7 +70,7 @@ export default TodoList;
 - React components use props to communicate with each other
 - Similar to html attributes, but you can pass any javascript value through props
   - Including objects, arrays, functions, jsx
-  -  = Props can be destructured in the function arguments of the componen=> t
+  - Props can be destructured in the function arguments of the component
 - Props are read-only and immutable
   - If props need to be changed, the parent component can pass new values
   - Hence props are not always static, they can be updated by parent

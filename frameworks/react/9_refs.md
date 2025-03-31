@@ -74,7 +74,7 @@ function VideoPlayer({ src, isPlaying }) {
     ref.current.pause();
   }
 
-  return <video ref={ref} src={src} />;
+  return <video ref={ref} src={src}/>;
 }
 ```
 
@@ -155,7 +155,7 @@ export default function Form() {
 
   return (
     <>
-      <input ref={inputRef} />
+      <input ref={inputRef}/>
       <button onClick={handleClick}>
         Focus the input
       </button>
@@ -165,10 +165,10 @@ export default function Form() {
 ```
 
 ## Accessing another component's DOM nodes
-- If you try to put a ref on your own component like `<MyInpuut ref={inputRef}/>`
+- If you try to put a ref on your own component like `<MyInput ref={inputRef}/>`
   - By default you will get null
   - This is intentional because refs are escape hatch that should be used sparingly
-  - Manually manipulating another component's DOMM nodes makes your code fragile
+  - Manually manipulating another component's DOM nodes makes your code fragile
 - Components that want to expose their DOM nodes have to opt in to that behavior
   - A component can specify that it forwards its ref to one of its children
   - MyInput can use the forwardRef API to achieve this
@@ -177,7 +177,7 @@ export default function Form() {
 import { forwardRef, useRef } from 'react';
 
 const MyInput = forwardRef((props, ref) => {
-  return <input {...props} ref={ref} />;
+  return <input {...props} ref={ref}/>;
 });
 
 export default function Form() {
@@ -189,7 +189,7 @@ export default function Form() {
 
   return (
     <>
-      <MyInput ref={inputRef} />
+      <MyInput ref={inputRef}/>
       <button onClick={handleClick}>
         Focus the input
       </button>

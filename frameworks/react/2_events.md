@@ -48,9 +48,9 @@ export default Toolbar;
 // When the button is clicked, only 'Button' alert is displayed
 const Toolbar = () => (
   <div className="Toolbar" onClick={() => alert('Toolbar')}>
-    <button onClick={() => alert('Button')}>
+    <Button onClick={() => alert('Button')}>
       Click
-    </button>
+    </Button>
   </div>
 );
 
@@ -73,7 +73,10 @@ const Button = ({ onClick, children }) => {
 
 ```js
 const Signup = () => (
-  <form onSubmit={() => alert('Submitting!')}>
+  <form onSubmit={(event) => {
+    event.preventDefault();
+    alert('Submitting!')
+  }}>
     <input/>
     <button>Send</button>
   </form>

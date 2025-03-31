@@ -19,7 +19,7 @@
 
 ```js
 const App = () => {
-  const counter = <Counter />;
+  const counter = <Counter/>;
   const [isFancy, setIsFancy] = useState(0);
   return (
     <div>
@@ -32,15 +32,15 @@ const App = () => {
       {/* These counters are rendered at the same position in the tree */}
       {/* So this will preserve the score state */}
       {/* Toggling isFancy state won't change the value of the score */}
-      {isFancy ? <Counter isFancy={true} /> : <Counter isFancy={false} />}
+      {isFancy ? <Counter isFancy={true}/> : <Counter isFancy={false}/>}
 
       {/* Toggling isPaused or isFancy will reset the state of the counter */}
       {/* The structure should be same to preserve the state */}
-      {isPaused ? <p>See you later!</p> : <Counter />}
+      {isPaused ? <p>See you later!</p> : <Counter/>}
       {isFancy ? (
-        <div> <Counter isFancy={true} /> </div>
+        <div> <Counter isFancy={true}/> </div>
       ) : (
-        <section> <Counter isFancy={false} /> </section>
+        <section> <Counter isFancy={false}/> </section>
       )}
     </div>
   );
@@ -67,16 +67,16 @@ const MyComponent = () => {
 
   const MyTextField = () => {
     const [text, setText] = useState('');
-    return <input value={text} onChange={e => setText(e.target.value)}/>
+    return <input value={text} onChange={(e) => setText(e.target.value)}/>
   }
 
   return (
     <>
       {/* Every time the button is clicked, MyTextField will re-render */}
-      {/* an the input will disappear. This is because the function MyTextField */}
+      {/* and the input will disappear. This is because the function MyTextField */}
       {/* is created for every render. Hence, always declare component functions */}
       {/* at the top level and don't nest their definitions */}
-      <MyTextField />
+      <MyTextField/>
       <button onClick={() => { setCounter(counter + 1) }}>
         Clicked {counter} times
       </button>
@@ -105,16 +105,16 @@ const Scoreboard = () => {
     <div>
       {/* Initially isPlayerA is true, so the first position contains Counter state */}
       {/* When the button is clicked, the first position clears and state is destroyed */}
-      {isPlayerA && <Counter person="Taylor" />}
+      {isPlayerA && <Counter person="Taylor"/>}
       {/* Initially isPlayerA is true, so the seconds position is empty */}
-      {!isPlayerA && <Counter person="Sarah" />}
+      {!isPlayerA && <Counter person="Sarah"/>}
 
       {/* Specifying a key tells React to use the key itself as part of the position */}
       {/* instead of their order within the parent */}
       {isPlayerA ? (
-        <Counter key="Taylor" person="Taylor" />
+        <Counter key="Taylor" person="Taylor"/>
       ) : (
-        <Counter key="Sarah" person="Sarah" />
+        <Counter key="Sarah" person="Sarah"/>
       )}
 
       <button onClick={() => { setIsPlayerA(!isPlayerA); }}>

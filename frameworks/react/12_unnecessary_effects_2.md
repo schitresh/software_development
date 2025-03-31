@@ -102,7 +102,7 @@ function Form() {
 - It’s better to calculate what you can during rendering
   - And adjust the state in the event handler
   - If you implement a way to view game history
-    - You can set do so without triggering the Effect chain that adjusts every other value
+    - You can do so without triggering the Effect chain that adjusts every other value
     - If you need to reuse logic, you can extract the event handler function
 - In some cases, you can’t calculate the next state directly in the event handler
   - E.g imagine a form with multiple dropdowns
@@ -118,13 +118,13 @@ function Game() {
   const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
-    if (card && card.gold) setGoldCardCount(c => c + 1);
+    if (card && card.gold) setGoldCardCount((c) => c + 1);
   }, [card]);
 
   useEffect(() => {
     if (goldCardCount <= 3) return;
     setGoldCardCount(0);
-    setRound(r => r + 1);
+    setRound((r) => r + 1);
   }, [goldCardCount]);
 
   useEffect(() => {
