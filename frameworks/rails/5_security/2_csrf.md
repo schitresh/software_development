@@ -4,7 +4,7 @@
   - If the session has not timed out, attacker may execute unauthorized commands
 - Webapps use cookie-based sessions
   - Either they store the session ID in the cookie & have a server-side session hash
-  - Or the entire session hash is on the client side
+    - Or the entire session hash is on the client side
   - In either case the browser automatically sends the cookie on very request
   - If the request comes from a site of a different domain, it will also send the cookie
     - For example, embedded in facebook post
@@ -17,7 +17,7 @@
 - Bob's session at www.webapp.com is still alive because he didn't log out
 - By viewing the post, the browser finds an image tag
   - And tries to load the suspected image from www.webapp.com
-  - It will aslo send along the cookie with the session ID
+  - It will also send along the cookie with the session ID
 - The webapp verifies the user info in the corresponding session hash
   - And destroys the project with the ID 1
   - And returns a result page which is unexpected result for the browser
@@ -77,4 +77,4 @@
   - Add a manual method that runs if CSRF token is absent or incorrect on non-Get request
 - Cross site scripting (XSS) bypass all CSRF protections
   - It gives attacker access to all elements on a page
-  - So they can read the CSRF security token fron a form or directly submit form
+  - So they can read the CSRF security token from a form or directly submit form

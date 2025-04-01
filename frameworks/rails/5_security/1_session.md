@@ -39,7 +39,7 @@
 ## Replay Attack
 - A user receives credits, the amount is stored in session
   - Which is a bad idea anyway, but we'll use this for example
-  - The user buys something and the new adjusted credit value in updated in session
+  - The user buys something and the new adjusted credit value is updated in session
   - The user copies the cookie during the first step and replaces the current cookie
   - The user has their original credit back
 - Including a nonce (a random value) in the session solves replay attacks

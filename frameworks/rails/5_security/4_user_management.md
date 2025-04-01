@@ -1,5 +1,5 @@
 ## User Management
-- It is advisable to use common plugins for authorizaiton and authentication
+- It is advisable to use common plugins for authorization and authentication
   - Rather than rolling your own (e.g. device, authlogic)
 - Good ones store only cryptographically hashed passwords, not in plain-text
 - Rails has built-in method has_secure_password
@@ -10,7 +10,7 @@
   - Because most people don't use sophisticated passwords
   - Most passwords are a combination of dictionary words and possibly numbers
 - Because of this, most web applications will display a generic error message
-  - Like username of password is incorrect
+  - Like username or password is incorrect
   - But in forgot password pages, most admit that username not found
   - This allows an attacker to compile a list of usernames and brute-force the accounts
 - Require to enter a CAPTCHA after a number of failed logins from a certain IP address
@@ -25,14 +25,14 @@
   - If the change password form is vulnerable to CSRF
     - An attacker might change password by luring users to a web page
     - And presenting a crafted img-tag which does CSRF
-    - So make this form sage against CSRF
+    - So make this form safe against CSRF
 - Email
   - Attacker may also take over the account by changing email address
   - After that, they will change the password using the forgot password page
   - Require the user to enter password when changing the email address too
 - CSRF & XSS vulnerability in mail client
   - Victim is lured to a website controlled by the attacker
-  - Where a crafter imag-tag is present and results in a http get request
+  - Where a crafter img-tag is present and results in a http get request
     - That changes the filter settings of the mail client
     - To forward all emails to their email address
 
@@ -51,7 +51,7 @@
   - They crawl the web and put their spam into every form's field they can find
   - Negative captchas take advantage of that and include a honeypot field
   - This field is hidden from human users by css or javascript
-  - Though they won't suffice to protect agains targeted tailor-made bots
+  - Though they won't suffice to protect against targeted tailor-made bots
 
 ## Logging
 - By default, rails logs all requests being made to the webapp
@@ -61,7 +61,7 @@
   - Like login credentials, credit card numbers, etc.
   - `config.filter_parameters << :password`
   - Default filters initialized in 'initializers/filter_parameter_logging.rb'
-    - :passw, :secret, :token to handle password, password confirmation, my_token
+    - :passw, :secret, token to handle password, password confirmation, my_token
 
 ## Regular Expressions
 - Ruby uses a slightly different approach to match beginning & end of a string
