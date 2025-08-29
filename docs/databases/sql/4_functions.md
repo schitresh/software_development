@@ -1,3 +1,4 @@
+# Queries
 ## Date and Time
 ```sql
 now() -- Current Date and Time

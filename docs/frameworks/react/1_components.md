@@ -1,4 +1,4 @@
-## Components
+# Components
 - React is a Javascript library for rendering user interfaces (UI)
   - UI is built from small units like buttons, text, images
   - React lets you combine them into reusable, nestable components
@@ -38,15 +38,15 @@ const Gallery = () => (
 ### JSX Rules
 - Return a single root element
   - If there are multiple elements, wrap them with a single parent tag
-  - If you don't want to use an extra element like div, fragment can be used
-  - Fragment is an empty tag & lets you group things (<>...</>)
+  - If you don't want to use an extra element like `div`, fragment can be used
+  - Fragment is an empty tag & lets you group things `<React.Fragment></React.Fragment>`
 - Close all the tags
-  - Self-closing tags like 'img' work in html: <img src=''>
-  - But they should be closed in jsx: <img src=''/>
-  - Wrapping tags like 'li' should also have a closing tag: <li>text</li>
+  - Self-closing tags like `img` work in html: `<img src=''>`
+  - But they should be closed in jsx: `<img src=''/>`
+  - Wrapping tags like `li` should also have a closing tag: `<li>text</li>`
 - camelCase most of the things
-  - Attributes cannot contain dashes like 'margin-left': <img style={{ marginLeft: 2 }}/>
-  - Reserved words like 'class' cannot be used: <img className={classes.image}/>
+  - Attributes cannot contain dashes like `margin-left`: `<img style={{ marginLeft: 2 }}/>`
+  - Reserved words like `class` cannot be used: `<img className={classes.image}/>` -->
 
 ```js
 const TodoList = () => {
@@ -65,7 +65,7 @@ const TodoList = () => {
 }
 export default TodoList;
 ```
-
+<!--
 ## Props
 - React components use props to communicate with each other
 - Similar to html attributes, but you can pass any javascript value through props

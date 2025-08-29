@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 - SQL: Structured Query Language
 - Standard database language used to access and manipulate data
 - Uses

@@ -1,3 +1,4 @@
+# Queries
 ## Select
 ```sql
 select * from employees;

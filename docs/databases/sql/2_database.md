@@ -1,3 +1,4 @@
+# Database
 ## Users
 ```sql
 alter user 'root'@'localhost' identified with mysql_native_password by 'new_password';
