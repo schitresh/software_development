@@ -1,4 +1,6 @@
-## Basics
+# Linux
+
+### Basics
 ```
 whoami                          Display username
 whatis cmd                      What is cmd
@@ -10,13 +12,13 @@ history                         History of commands used
 watch -n t 'cmd'                Execute cmd & output every t seconds
 ```
 
-## Disk
+### Disk
 ```
 df                              Disk info
 du                              Disk usage
 ```
 
-## Shell
+### Shell
 ```
 reset                           Reload the shell
 env                             Show env variables
@@ -27,7 +29,7 @@ $HOME                           Home directory
 $SHELL                          Current shell
 ```
 
-## Shortcuts
+### Shortcuts
 ```
 CTRL + C                        Stop current command
 CTRL + Z                        Sleep program
@@ -37,7 +39,7 @@ CTRL + U                        Cut from start of line
 CTRL + K                        Cut to end of line
 ```
 
-## Last Command
+### Last Command
 ```
 !!                              Repeat last command
 !abc                            Run last command starting with abc
@@ -48,7 +50,7 @@ ALT + .                         Last argument of previous command
 ^abc^123                        Run previous command, replacing abc with 123
 ```
 
-## Input Output
+### Input Output
 ```
 Data streams: stdin(0), stdout(1), stderr(2)
 cmd < file                      Input file to cmd
@@ -62,7 +64,7 @@ cmd 2 > &1                      stderr to stdout
 cmd & > file                    Every stdout of cmd to file
 ```
 
-## Pipes, Nesting, etc
+### Pipes, Nesting, etc
 ```
 cmd1 | cmd2                     Pass output of cmd1 to cmd2
 cmd1 | &cmd2                    Pass error of cmd1 to cmd2
@@ -74,7 +76,7 @@ cmd1 || cmd2                    Run cmd2 if cmd1 not successful
 cmd &                           Run cmd in subshell
 ```
 
-## Directory
+### Directory
 ```
 basename path                   Directory name
 dirname path                    Parent Directory name
@@ -94,7 +96,7 @@ ls                              List
   -Q                              quoted
 ```
 
-## Search
+### Search
 ```
 grep pattern file1 file2              Search for pattern in file1 & file2
 grep -i pattern file                  Case insensitive
@@ -116,7 +118,7 @@ find . -name pattern -type f          Search only files
 find . -name pattern -type d          Search only directories
 ```
 
-## Files
+### Files
 ```
 touch file                      Create file
 cat file1 file2                 Concatenate files and stdout
@@ -131,7 +133,7 @@ tail -n 2 file                  Show last 2 lines
 tail -F file                    stdout last lines of file as it changes
 ```
 
-## Permissions
+### Permissions
 ```
 chmod 777 file                  777: <owner><group><everyone>
 chmod -R 777 folder             Recursively change mode in folder
@@ -150,7 +152,7 @@ Calculate permission number by adding these numbers
 1: x
 ```
 
-## Processes
+### Processes
 ```
 ps                              Show snapshot of processes
 top                             Show real time processes
@@ -159,7 +161,7 @@ pkill name                      Kill process with name
 killall name                    Kill all processes with names starting with name
 ```
 
-## Manipulation
+### Manipulation
 ```
 cut -d 'delimiter' -f n         Split by delimiter and print the field at nth position
 cut -d ' ' -f 2                 Split by space & print the second field
@@ -176,7 +178,7 @@ echo 'hello' |
   tr -d 'e'                     Remove e
 ```
 
-## Info
+### Info
 ```
 iwconfig                        Network Interface
 lscpu                           CPU
@@ -184,5 +186,7 @@ sensors                         Sensors and temperature
 watch -n 2 sensors
 ```
 
-## Services
-`service --status-all`
+### Services
+```
+service --status-all
+```

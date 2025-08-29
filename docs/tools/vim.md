@@ -1,208 +1,290 @@
-## Basics
+# VIM
+
+### Basics
 ```
-.                   repeat last edit command
-u, U                undo, undo line
-CTRL + R            redo
-CTRL + O            Insert mode: Execute one command
+.                   Repeat the last edit command
+u                   Undo
+U                   Undo line
+CTRL + R            Redo
+CTRL + O            Execute one command in insert mode
 CTRL + [            Exit insert mode
 ```
 
-## Screen Navigation
+### Navigation
+#### Line
 ```
-nG or ngg or :n     Move to line number n
-h, j, k, l          Arrow movements
-H, M, L             Highest, Middle, Lowest line of screen
-nH, nL              n lines after-highest, before-last line
-gg, G               First, last line of file
+gg                  First line of file
+G                   Last line of file
+ngg, nG, :n         Line number n
 
-CTRL + F, B         Scroll forward, backward
-CTRL + D, U         Scroll forward, backward half screen
-CTRL + E, Y         Reposition scroll down, up
-zt, zz, zb          Reposition line: top, middle, bottom
+H                   Highest line on screen
+M                   Middle line on screen
+L                   Lowest line on screen
 ```
 
-## Word, Line, Section Navigation
-- Lowercase (w, b, e, ge) - Consider puntuations
-- Uppercase (W, B, E, gE) - Skip puntuations
-
+#### Cursor
 ```
-b, e                Beginning, end of current word
-w, ge               Beginning of next word, end of previous word
-0, $                Beginning, end of line
-_, g_               Beginning, end of line without whitespace
-
-%                   Matching bracket
-(, )                Previous, next sentence
-{, }                Previous, next paragraph
-[[, ]]              Previous, next section
+h                   Left
+j                   Down
+k                   Up
+l                   Right
 ```
 
-## Line Operations
+#### Scroll
 ```
+CTRL + F            Scroll forward
+CTRL + B            Scroll backward
+
+CTRL + D            Scroll forward by half screen
+CTRL + U            Scroll backward by half screen
+```
+
+#### Reposition
+```
+CTRL + E            Scroll forward without moving cursor
+CTRL + Y            Scroll backward without moving cursor
+
+zt                  Reposition line to top of screen
+zz                  Reposition line to middle of screen
+zb                  Reposition line to bottom of screen
+```
+
+### Jumps
+- Lowercase letters `b, e, w, ge` jump to puntuations like comma (not space)
+- Uppercase letters `B, E, W, gE` jump over puntuations like comma (not space)
+
+#### Word
+```
+b                   Beginning of current word
+e                   End of current word
+w                   Beginning of next word
+ge                  End of previous word
+```
+
+#### Line
+```
+0                   Beginning of line
+$                   End of line
+_                   Beginning of line without whitespace
+g_                  End of line without whitespace
 gm                  Middle of line
+```
+
+#### Paragraph
+```
+%                   Matching bracket
+
+(                   Previous sentence
+)                   Next sentence
+
+{                   Previous paragraph
+}                   Next paragraph
+
+[[                  Previous section
+]]                  Next section
+```
+
+### Motions
+```
+[frequency][operation][motion]
+or [operation][frequency][motion]
+
+# Operations
+a                   around
+i                   inside
+
+# Motions
+w                   word
+s                   sentence
+p                   paragraph
+b, )                ()
+B, {}               {}
+t, <>               <>
+"                   ""
+```
+
+### Operations
+#### Join
+```
 J                   Join two lines
 :x,yj               Join lines x to y
 ```
 
-## Motions
+#### Insert
 ```
-[operation][frequency][motion] ( or [frequency][operation][motion])
-
-a, i                around, inside
-w, s, p             word, sentence, paragraph
-b, B, t             (), {}, <>
-), }, >, "          (), {}, <>, ""
-
-y$                  Yank till end of line
-yi(                 Yank inside ()
-ya(                 Yank around ()
-
-cw                  Change word
-c2w                 Change 2 words
-caw                 Change around word
-ca)                 Change around ()
-cG                  Change till end of file
-
-d^                  delete till start of line
-di}                 delete inside ()
-dfs                 delete upto s
-d/pattern           delete upto pattern
-dn                  delete upto next highlighted pattern
-```
-
-## Operations
-```
-Basics
 i, a                Insert (before cursor), append (after cursor)
 I, A                Insert at beginning of line, Append at end of line
 o, O                Insert in new line below, above
+```
 
-Change
-cc, C               Change line, till end of line
-r, R                Replace character, Keep replacing text
-s, S                Substitute character, line (with insert mode)
-
-Delete
-dd, D               Delete line, till end of line
-x, X                Delete character under, before cursor
-CTRL + U            Insert mode: Delete till start of line
-CTRL + W            Insert mode: Delete previous word
-
-Yank
-p, P                Paste after, before
+#### Yank
+```
 yy, Y               Yank line
-y'x                 Yank from mark x to cursor
-:%y                 Yank buffer
-"ayy                Yank line into named buffer a
+y0                  Yank from the start of line
+y$                  Yank till the end of line
 
-Indentation
-<<, >>              Indent line backward, forward
-5>>                 Indent 5 lines
-:>>>                Indent line 3 times
+yi(                 Yank inside ()
+ya(                 Yank around ()
+
+p                   Paste after
+P                   Paste before
+```
+
+#### Change
+```
+cc                  Change line
+C                   Change till the end of line
+cG                  Change till the end of file
+
+cw                  Change word
+2cw                 Change 2 words
+caw                 Change around word
+ca)                 Change around ()
+
+r                   Replace character
+R                   Keep replacing text
+
+s                   Substitute character (with insert mode)
+S                   Substitute line (with insert mode)
+```
+
+#### Delete
+```
+dd                  Delete line
+d^                  Delete from the start of line
+dD                  Delete till the end of line
+
+x                   Delete character under cursor
+X                   Delete character before cursor
+
+di}                 delete inside {}
+dfs                 delete upto 's'
+d/pattern           delete upto the pattern
+dn                  delete upto the next highlighted pattern
+
+CTRL + U            Delete till start of line (insert mode)
+CTRL + W            Delete previous word (insert mode)
+```
+
+#### Indent
+```
+CTRL + T            Indent (insert mode)
+CTRL + D            Unindent (insert mode)
+
+<<                  Indent line backward
+>>                  Indent line forward
+5>>                 Indent 5 lines forward
+:>>>                Indent line forward 3 times
+
 <[motion]           Indent backward
 >[motion]           Indent forward
 >}                  Indent Paragraph
 [visual]5>          Indent the visual block 5 times
-CTRL + T            Insert mode: Indent
-CTRL + D            Insert mode: Unindent
-
-Visual Mode
-v                   custom
-V                   line
-CTRL + V            block
-gv                  reselect previous selection
 ```
 
-## Surround
-- vim-surround (pre-installed in vscode)
-- To add space, use opening bracket: ysiw( will add ( hello )
-- To ignore space, use closing bracket: ysiw) will add (hello)
+### Visual Mode
+```
+v                   Select from the cursor
+V                   Select the line
+CTRL + V            Select the block
+gv                  Reselect the previous selection
+```
+
+### Surround
+- Works with the vim-surround plugin (pre-installed in vscode)
+- To add space, use opening bracket: `ysiw(` will add `( hello )`
+- To ignore space, use closing bracket: `ysiw)` will add `(hello)`
 
 ```
-ysiw'               Add surround `'` in word
-yss'                Add surround `'` in line
-cs'"                Change surround from `'` to `"`
-cst<p>              Change surround from current tag to `<p>`
-ds'                 Drop surround `'`
-vi'                 Select content in ''
+ysiw'               Surround the word with by ''
+yss'                Surround the line with by ''
+
+cs'"                Change the surround from '' to ""
+cst<p>              Change the surround from current tag to <p>
+ds'                 Drop the surround ''
+
+vi'                 Select content inside ''
 va'                 Select content around ''
-yi"                 Yank content in ""
+yi"                 Yank content inside ""
 ca)                 Change content around ()
-di)                 Delete content in ()
-dfs                 Delete content upto 's'
+di)                 Delete content inside ()
 ```
 
-## Search and Substitute
+### Search
 ```
-Line
-fx, Fx              Forward, backward character x
-tx, Tx              Forward, backward character before, after x
-;, ,                Repeat last
+fx                  Search character x forward within the line
+Fx                  Search character x backward within the line
+;                   Repeat last search forward within the line
+,                   Repeat last search backward within the line
 
-Current Word
-*, #                Next, previous match
-[i, [I              First, all lines
+*                   Search next match for the word under cursor
+#                   Search previous match for the word under cursor
 
-/pat, ?pat          Forward, backward
-n, N                Next, previous match
-/, ?                Repeat last
-
-:s/old/new/g        substitute in line
-:%s/old/new/g       substitute in file
-
-&                   repeat last substitution
-:noh                remove highlights
+/pattern            Search forward
+?pattern            Search backward
+n                   Next match
+N                   Previous match
+:noh                Remove highlights
 ```
 
-## Case
+### Substitute
+```
+:s/old/new/g        Substitute within the line
+:%s/old/new/g       Substitute within the file
+&                   Repeat the last substitution
+```
+
+### Case
 ```
 ~                   Toggle case of character
-g~[m]               Toggle case
-gu[m], gU[m]        Lowercase, uppercase
-guu, gUU            Lowercase, uppercase line
-CTRL + A, X         Increment, decrement number
+g~[motion]          Toggle case
+
+gu[motion]          Lowercase
+gU[motion]          Uppercase
+
+guu                 Lowercase line
+gUU                 Uppercase line
 ```
 
-## Marking
+### Marking
 ```
-mx                  mark current position as x
-mX                  global mark with file and location
+mx                  Mark current position as x
+mX                  Global mark with file and location
 
 `x                  Jump to x
-'x                  Jump to x line's start
-
+'x                  Jump to x (at the start of the line)
 ``                  Jump to previous location
-''                  Jump to previous line's start
+''                  Jump to previous location (at the start of the line)
 
 `.                  Jump to last edit
-`[, `]              Jump to last edit line's start, end
+`[                  Jump to last edit (at the start of the line)
+`]                  Jump to last edit (at the end of the line)
 gi                  Jump to last edit with insert
 
-CTRL + O, I         Backward, forward in jumplist
-g;, g,              Backward, forward in changelist
-
+CTRL + O            Backward in jumplist
+CTRL + I            Forward in jumplist
+g;                  Backward in changelist
+g,                  Forward in changelist
 :marks              List marks
-:jumps              List jumps
-:reg x              List registers of x
 ```
 
-## Formatting
+### Formatting
 ```
 ==                  Fix line indent
 =G                  Indent till last line
 ```
 
-## Commands
+### Commands
 ```
-ZZ, :x, :wq         write and quit file
-:w !sudo tee %      write using sudo
-%                   current filename
+ZZ, :x, :wq         Write and quit file
+:w !sudo tee %      Write using sudo
+%                   Current filename
 
-:!cmd               run command
-:r !cmd             read from command out
-:n,m!cmd            send lines n-m to command
-:!!                 repeat last command
+:!cmd               Run command
+:r !cmd             Read from command out
+:n,m!cmd            Send lines n-m to command
+:!!                 Repeat last command
 
-:sh                 start external shell
-:term               start internal terminal
+:sh                 Start external shell
+:term               Start internal terminal
 ```

@@ -1,49 +1,51 @@
-## Basics
+# Git
+
+### Basics
 ```
-git status                                  gst
-git diff                                    gd
-git add                                     ga
-git add -all                                gaa
-git commit -m <msg>                         gcmsg
-git log --graph                             glol
+git status
+git diff
+git add
+git add -all
+git commit -m <msg>
+git log --graph
 ```
 
-## Checkout
+### Checkout
 ```
-git checkout                                gco
-git checkout -b                             gcb
-git checkout master                         gcm
-Remove unstaged commits                     gco -- .
-Checkout files from another branch          gco <branch> -- <files>
-```
-
-## Push & Pull
-```
-git push origin <branch>                    ggp
-git pull origin <branch>                    ggl
-git pull --rebase origin <branch>           ggu
-git fetch                                   gf
-git merge origin/master                     gmom
+git checkout
+git checkout -b
+git checkout master
+git checkout -- .                           Remove unstaged commits
+git checkout <branch> -- <files>            Checkout files from another branch
 ```
 
-## Stash
+### Push & Pull
 ```
-git stash list                              gstl
-git stash push                              gsta
-git stash push -m 'message'                 gsta -m 'message'
-git stash --untracked                       gstu
-git stash --all                             gsta
-git stash pop                               gstp
-git stash apply                             gstaa
-git stash apply stash@{n}                   gstaa stash@{n}
-git stash drop                              gstd
-git stash drop stash@{n}                    gstd stash@{n}
-git stash clear                             gstc
-git stash show --text                       gsts
-git stash show --text -p stash@{1}          gsts stash@{n}
+git push origin <branch>
+git pull origin <branch>
+git pull --rebase origin <branch>
+git fetch
+git merge origin/master
 ```
 
-## Reset & Revert
+### Stash
+```
+git stash list
+git stash push
+git stash push -m 'message'
+git stash --untracked
+git stash --all
+git stash pop
+git stash apply
+git stash apply stash@{n}
+git stash drop
+git stash drop stash@{n}
+git stash clear
+git stash show --text
+git stash show --text -p stash@{1}
+```
+
+### Reset & Revert
 ```
 git reset --hard
 git reset --hard hash
@@ -58,15 +60,16 @@ git commit --amend -m 'message'
 git remote add <origin>
 ```
 
-## Skip
+### Worktree
 ```
-git update-index --assume-unchanged <files>
-git update-index --no-assume-unchanged <files>
 git update-index --skip-worktree <files>
 git update-index --no-skip-worktree <files>
+
+git update-index --assume-unchanged <files>
+git update-index --no-assume-unchanged <files>
 ```
 
-## Patch
+### Patch
 ```sh
 git diff HEAD > example.patch
 git reset --hard
