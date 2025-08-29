@@ -1,58 +1,75 @@
 # Queries
-## Select
+### Select
 ```sql
+-- Select all columns
 select * from employees;
-select * from employees limit 10;
-select * from employees where joining_date >= '2023-01-01';
+
+-- Select specific columns
+select employee_id, full_name, date_of_joining from employees;
 
 -- Alias column names
-select full_name as name, datediff(date_of_birth, curdate()) as age from employees;
+select
+  full_name as name,
+  datediff(date_of_birth, curdate()) as age
+from employees;
 
 -- Select distinct values
 select distinct(city) from employees;
 ```
 
-## Order and Limit
+### Order and Limit
 ```sql
 select * from employees order by date_of_joining;
 select * from employees order by date_of_joining, salary desc;
 select * from employees order by date_of_joining desc, salary desc;
 
 select * from employees limit 10;
+
 -- Select 10 random employees
 select * from employees order by rand() limit 10;
 
--- Select employees with the 10th to 15th highest salary
+-- Select employees having the 10th to 15th highest salary
 select * from employees order by salary limit 5 offset 10;
 select * from employees order by salary limit 5, 10;
 ```
 
-## Where and Operators
+### Where Conditions
 ```sql
+-- Comparison operators
 select * from employees where city is null;
 select * from employees where city is not null;
 select * from employees where city = 'New York';
 select * from employees where city != 'New York';
 
+-- Logical operators
 select * from employees where city = 'New York' and salary >= 10000;
 select * from employees where city = 'New York' or salary >= 10000;
 
-select * from employees where salary between 5000 and 10000;
+-- String operators
 select * from employees where name like '%wick';
-select * from employees where name like '__h%'; -- contains h at third position
+-- Contains h at third position
+select * from employees where name like '__h%';
 
+-- Range operators
+select * from employees where salary between 5000 and 10000;
+
+-- Membership operators
 select * from employees where city in ('New York', 'Los Angeles');
 select * from employees where city not in ('New York', 'Los Angeles');
-select * from employees where city in (select city from cities where state_code = 'NY');
+select * from employees where city in (
+  select city from cities where state_code = 'NY'
+);
 ```
 
-## If and Case
+### Conditionals
 ```sql
+-- If
 select
   full_name,
   if(salary < 10000, 'Employee', 'Executive') as category
 from employees;
 
+-- Case
 select
   full_name,
   (case
@@ -63,41 +80,56 @@ select
 from employees;
 ```
 
-## Union, Intersect, Minus
-- Applied between two select queries
-- The select queries must have the same number of columns, of the same data type, in the same order
-- Union: Gets distinct values
-- Union all: Allows duplicates
+### Sets
+- Applied between two 'select' queries where both the queries
+    - Must have the same number of columns
+    - Must have the same data type
+    - Must have the columns of the same order
 
 ```sql
+-- 'Union' returns distinct values
 (select city from employees) union (select city from students);
+
+-- 'Union all' allows duplicates
 (select city from employees) union all (select city from students);
+
+-- 'Intersect' returns common values
 (select city from employees) intersect (select city from students);
+
+-- 'Minus' returns distinct values
+(select city from employees) minus (select city from students);
 ```
 
-## Group
-- Placed after where clause and before 'order by' & 'having' clause
-- 'having' is used for filtering the grouped data
+### Group
+- Placed after the 'where' clause and before the 'order' & 'having' clause
+- The 'having' clause is used for filtering the grouped data
 - In case of multiple rows, the data from the first row is shown
 
 ```sql
-select city, count(*) as num_of_employees
+select
+    city,
+    count(*) as num_of_employees
 from employees
 where date_of_joining >= '2023-01-01'
 group by city
 order by num_of_employees;
 
-select city, year(date_of_joining) as year_of_joining, count(*) as num_of_employees
+select
+    city,
+    year(date_of_joining) as year_of_joining,
+    count(*) as num_of_employees
 from employees
 group by city, year(date_of_joining);
 
-select city, count(*) as num_of_employees
+select
+    city,
+    count(*) as num_of_employees
 from employees
 group by city
 having sum(salary) > 100000 and num_of_employees < 5;
 ```
 
-## Aggregators
+### Aggregators
 - Count, Sum, Avg, Max, Min
 
 ```sql
@@ -106,7 +138,7 @@ select count(*) from employees group by department_id;
 select * from employees group by department_id having count(*) > 10;
 ```
 
-## Joins
+### Joins
 - inner join (or join)
 - left join (or left outer join)
 - right join (or right outer join)

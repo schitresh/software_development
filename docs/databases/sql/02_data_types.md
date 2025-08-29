@@ -1,0 +1,91 @@
+# Data Types
+## Numeric Data Types
+- Bool
+    - 0 is false, 1 is true
+- Bit
+    - 1 to 64
+    - Default is 1
+- Tinyint
+    - 0 to (255)
+    - 0 to (2^8 - 1)
+    - 1 byte (8 bit)
+- Smallint
+    - (-3 * 10^4) to (3 * 10^4)
+    - (-2^15) to (2^15 - 1)
+    - 2 bytes (16 bit)
+- Int
+    - (-2 * 10^9) to (2 * 10^9)
+    - (-2^31) to (2^31 - 1)
+    - 4 bytes (32 bit)
+- Bigint
+    - (-9 * 10^18) to (9 * 10^18)
+    - (-2^63) to (2^63 - 1)
+    - 8 bytes (64 bit)
+- Decimal
+    - Represents fractions in decimal (base 10)
+    - (-10^38 + 1) to (10^38 - 1)
+    - 5 to 17 bytes depending on precision
+    - Precision
+        - Number of digits before decimal point
+        - Max 38 digits (65 in MySQL)
+        - Default is 10 digits
+    - Scale
+        - Number of digits after decimal point
+        - Max 30 digits
+        - Default is 0 digits
+- Float
+    - Represents fractions in binary (base 2)
+    - Approximate numeric, don't store the exact values
+    - Appropriate for scientific calculations
+    - Not appropriate for business oriented math
+    - Provides faster calculations
+    - 4 bytes
+    - Precision: 0 to 24
+- Double
+    - Float with higher precision
+    - Approximate numeric, don't store the exact values
+    - 8 bytes
+    - Precision: 25 to 53
+
+## String Data Types
+- Char
+    - Fixed length string
+    - 0 to 8K (255 in MySQL)
+- Varchar
+    - Variable length string
+    - 0 to 8K (65K in MySQL)
+- Binary
+    - Char that stores binary byte strings
+- Varbinary
+    - Varchar that stores binary byte strings
+- Tinytext
+    - 255 chars
+- Text
+    - (6.5 * 10^4) chars
+    - 64 KB
+    - Used to store articles
+- Mediumtext
+    - (1.6 * 10^7) chars
+    - 16 MB
+    - Used to store books
+- Longtext
+    - (4 * 10^9) chars
+    - 4 GB
+- Tinyblob
+    - BLOB: Binary Large Objects
+    - 255 bytes
+- Blob
+    - (6.5 * 10^4) bytes
+- Mediumblob
+    - (1.6 * 10^7) bytes
+- Longblob
+    - (4 * 10^9) bytes
+
+## Date & Time Data Types
+- Date: YYYY-MM-DD
+- Datetime: YYYY-MM-DD hh:mm:ss
+- Timestamp
+    - Stored as epoch (Number of seconds since the unix epoch 1971-01-01 00:00:00 UTC)
+    - Used to store metadata to keep track like created date, modified date
+- Time: hh:mm:ss
+- Year: YYYY
