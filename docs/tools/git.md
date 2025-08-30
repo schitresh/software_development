@@ -1,6 +1,7 @@
 # Git
 
 ### Basics
+
 ```
 git status
 git diff
@@ -11,6 +12,7 @@ git log --graph
 ```
 
 ### Checkout
+
 ```
 git checkout
 git checkout -b
@@ -20,6 +22,7 @@ git checkout <branch> -- <files>            Checkout files from another branch
 ```
 
 ### Push & Pull
+
 ```
 git push origin <branch>
 git pull origin <branch>
@@ -29,6 +32,7 @@ git merge origin/master
 ```
 
 ### Stash
+
 ```
 git stash list
 git stash push
@@ -46,6 +50,7 @@ git stash show --text -p stash@{1}
 ```
 
 ### Reset & Revert
+
 ```
 git reset --hard
 git reset --hard hash
@@ -61,6 +66,7 @@ git remote add <origin>
 ```
 
 ### Worktree
+
 ```
 git update-index --skip-worktree <files>
 git update-index --no-skip-worktree <files>
@@ -70,6 +76,7 @@ git update-index --no-assume-unchanged <files>
 ```
 
 ### Patch
+
 ```sh
 git diff HEAD > example.patch
 git reset --hard

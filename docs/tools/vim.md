@@ -1,6 +1,7 @@
 # VIM
 
 ### Basics
+
 ```
 .                   Repeat the last edit command
 u                   Undo
@@ -11,7 +12,9 @@ CTRL + [            Exit insert mode
 ```
 
 ### Navigation
+
 #### Line
+
 ```
 gg                  First line of file
 G                   Last line of file
@@ -23,6 +26,7 @@ L                   Lowest line on screen
 ```
 
 #### Cursor
+
 ```
 h                   Left
 j                   Down
@@ -31,6 +35,7 @@ l                   Right
 ```
 
 #### Scroll
+
 ```
 CTRL + F            Scroll forward
 CTRL + B            Scroll backward
@@ -40,6 +45,7 @@ CTRL + U            Scroll backward by half screen
 ```
 
 #### Reposition
+
 ```
 CTRL + E            Scroll forward without moving cursor
 CTRL + Y            Scroll backward without moving cursor
@@ -50,10 +56,12 @@ zb                  Reposition line to bottom of screen
 ```
 
 ### Jumps
-- Lowercase letters `b, e, w, ge` jump to puntuations like comma (not space)
-- Uppercase letters `B, E, W, gE` jump over puntuations like comma (not space)
+
+-   Lowercase letters `b, e, w, ge` jump to puntuations like comma (not space)
+-   Uppercase letters `B, E, W, gE` jump over puntuations like comma (not space)
 
 #### Word
+
 ```
 b                   Beginning of current word
 e                   End of current word
@@ -62,6 +70,7 @@ ge                  End of previous word
 ```
 
 #### Line
+
 ```
 0                   Beginning of line
 $                   End of line
@@ -71,6 +80,7 @@ gm                  Middle of line
 ```
 
 #### Paragraph
+
 ```
 %                   Matching bracket
 
@@ -85,6 +95,7 @@ gm                  Middle of line
 ```
 
 ### Motions
+
 ```
 [frequency][operation][motion]
 or [operation][frequency][motion]
@@ -104,13 +115,16 @@ t, <>               <>
 ```
 
 ### Operations
+
 #### Join
+
 ```
 J                   Join two lines
 :x,yj               Join lines x to y
 ```
 
 #### Insert
+
 ```
 i, a                Insert (before cursor), append (after cursor)
 I, A                Insert at beginning of line, Append at end of line
@@ -118,6 +132,7 @@ o, O                Insert in new line below, above
 ```
 
 #### Yank
+
 ```
 yy, Y               Yank line
 y0                  Yank from the start of line
@@ -131,6 +146,7 @@ P                   Paste before
 ```
 
 #### Change
+
 ```
 cc                  Change line
 C                   Change till the end of line
@@ -149,6 +165,7 @@ S                   Substitute line (with insert mode)
 ```
 
 #### Delete
+
 ```
 dd                  Delete line
 d^                  Delete from the start of line
@@ -167,6 +184,7 @@ CTRL + W            Delete previous word (insert mode)
 ```
 
 #### Indent
+
 ```
 CTRL + T            Indent (insert mode)
 CTRL + D            Unindent (insert mode)
@@ -183,6 +201,7 @@ CTRL + D            Unindent (insert mode)
 ```
 
 ### Visual Mode
+
 ```
 v                   Select from the cursor
 V                   Select the line
@@ -191,9 +210,10 @@ gv                  Reselect the previous selection
 ```
 
 ### Surround
-- Works with the vim-surround plugin (pre-installed in vscode)
-- To add space, use opening bracket: `ysiw(` will add `( hello )`
-- To ignore space, use closing bracket: `ysiw)` will add `(hello)`
+
+-   Works with the vim-surround plugin (pre-installed in vscode)
+-   To add space, use opening bracket: `ysiw(` will add `( hello )`
+-   To ignore space, use closing bracket: `ysiw)` will add `(hello)`
 
 ```
 ysiw'               Surround the word with by ''
@@ -211,6 +231,7 @@ di)                 Delete content inside ()
 ```
 
 ### Search
+
 ```
 fx                  Search character x forward within the line
 Fx                  Search character x backward within the line
@@ -228,6 +249,7 @@ N                   Previous match
 ```
 
 ### Substitute
+
 ```
 :s/old/new/g        Substitute within the line
 :%s/old/new/g       Substitute within the file
@@ -235,6 +257,7 @@ N                   Previous match
 ```
 
 ### Case
+
 ```
 ~                   Toggle case of character
 g~[motion]          Toggle case
@@ -247,6 +270,7 @@ gUU                 Uppercase line
 ```
 
 ### Marking
+
 ```
 mx                  Mark current position as x
 mX                  Global mark with file and location
@@ -269,12 +293,14 @@ g,                  Forward in changelist
 ```
 
 ### Formatting
+
 ```
 ==                  Fix line indent
 =G                  Indent till last line
 ```
 
 ### Commands
+
 ```
 ZZ, :x, :wq         Write and quit file
 :w !sudo tee %      Write using sudo

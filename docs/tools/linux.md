@@ -1,6 +1,7 @@
 # Linux
 
 ### Basics
+
 ```
 whoami                          Display username
 whatis cmd                      What is cmd
@@ -13,12 +14,14 @@ watch -n t 'cmd'                Execute cmd & output every t seconds
 ```
 
 ### Disk
+
 ```
 df                              Disk info
 du                              Disk usage
 ```
 
 ### Shell
+
 ```
 reset                           Reload the shell
 env                             Show env variables
@@ -30,6 +33,7 @@ $SHELL                          Current shell
 ```
 
 ### Shortcuts
+
 ```
 CTRL + C                        Stop current command
 CTRL + Z                        Sleep program
@@ -40,6 +44,7 @@ CTRL + K                        Cut to end of line
 ```
 
 ### Last Command
+
 ```
 !!                              Repeat last command
 !abc                            Run last command starting with abc
@@ -51,6 +56,7 @@ ALT + .                         Last argument of previous command
 ```
 
 ### Input Output
+
 ```
 Data streams: stdin(0), stdout(1), stderr(2)
 cmd < file                      Input file to cmd
@@ -65,6 +71,7 @@ cmd & > file                    Every stdout of cmd to file
 ```
 
 ### Pipes, Nesting, etc
+
 ```
 cmd1 | cmd2                     Pass output of cmd1 to cmd2
 cmd1 | &cmd2                    Pass error of cmd1 to cmd2
@@ -77,6 +84,7 @@ cmd &                           Run cmd in subshell
 ```
 
 ### Directory
+
 ```
 basename path                   Directory name
 dirname path                    Parent Directory name
@@ -97,6 +105,7 @@ ls                              List
 ```
 
 ### Search
+
 ```
 grep pattern file1 file2              Search for pattern in file1 & file2
 grep -i pattern file                  Case insensitive
@@ -119,6 +128,7 @@ find . -name pattern -type d          Search only directories
 ```
 
 ### Files
+
 ```
 touch file                      Create file
 cat file1 file2                 Concatenate files and stdout
@@ -134,6 +144,7 @@ tail -F file                    stdout last lines of file as it changes
 ```
 
 ### Permissions
+
 ```
 chmod 777 file                  777: <owner><group><everyone>
 chmod -R 777 folder             Recursively change mode in folder
@@ -153,6 +164,7 @@ Calculate permission number by adding these numbers
 ```
 
 ### Processes
+
 ```
 ps                              Show snapshot of processes
 top                             Show real time processes
@@ -162,6 +174,7 @@ killall name                    Kill all processes with names starting with name
 ```
 
 ### Manipulation
+
 ```
 cut -d 'delimiter' -f n         Split by delimiter and print the field at nth position
 cut -d ' ' -f 2                 Split by space & print the second field
@@ -179,6 +192,7 @@ echo 'hello' |
 ```
 
 ### Info
+
 ```
 iwconfig                        Network Interface
 lscpu                           CPU
@@ -187,6 +201,7 @@ watch -n 2 sensors
 ```
 
 ### Services
+
 ```
 service --status-all
 ```

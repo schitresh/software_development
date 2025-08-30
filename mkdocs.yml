@@ -1,6 +1,6 @@
-site_name: Computer Science
-repo_name: schitresh/computer_science
-repo_url: https://github.com/schitresh/computer_science
+site_name: Software Development
+repo_name: schitresh/software-development
+repo_url: https://github.com/schitresh/software-development
 plugins:
     - search
     - awesome-pages

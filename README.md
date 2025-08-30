@@ -1,1 +1,3 @@
-View at [Software Development](https://schitresh.github.io/software_development/)
+Visit [Software Development](https://schitresh.github.io/software-development/) to view notes on:
+
+-   Tools like Git, Linux, VSCode, Vim
